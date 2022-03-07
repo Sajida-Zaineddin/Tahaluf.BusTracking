@@ -8,8 +8,6 @@
     <Folder Include="Common\" />
     <Folder Include="DTO\" />
     <Folder Include="Service\" />
-    <Folder Include="Repository\" />
-    <Folder Include="Data\" />
   </ItemGroup>
 
   <ItemGroup>
