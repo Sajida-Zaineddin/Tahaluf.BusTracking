@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
 using Tahaluf.BusTracking.Core.Repository;
+using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.Infra.Service
 {
-    public class RoleService
+    public class RoleService : IRoleService
     {
         private readonly IRoleRepository roleRepository;
 
@@ -20,15 +21,15 @@ namespace Tahaluf.BusTracking.Infra.Service
         }
         public bool CreateRole(Role role)
         {
-            return roleRepository.CreateRole();    
+            return roleRepository.CreateRole(role);    
         }
         public bool UpdateRole(Role role)
         {
-            return roleRepository.UpdateRole();
+            return roleRepository.UpdateRole(role);
         }
         public bool DeleteRole(int Id)
         {
-            return roleRepository.DeleteRole();
+            return roleRepository.DeleteRole(Id);
         }
     }
 }
