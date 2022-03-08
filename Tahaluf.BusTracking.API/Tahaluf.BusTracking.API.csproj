@@ -15,5 +15,9 @@
     <ProjectReference Include="..\Tahaluf.BusTracking.Infra\Tahaluf.BusTracking.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 
 </Project>
