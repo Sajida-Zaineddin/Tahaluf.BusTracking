@@ -24,7 +24,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(List<Testimonial>), StatusCodes.Status200OK)]
-        public List<Testimonial> GetAllBooks()
+        public List<Testimonial> GetAllTestimonial()
         {
             return testimonialService.GetAllTestimonials();
             
