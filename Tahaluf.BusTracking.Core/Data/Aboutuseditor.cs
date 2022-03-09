@@ -15,6 +15,6 @@ namespace Tahaluf.BusTracking.Core.Data
 
         public virtual Aboutu About { get; set; }
 
-        string s 
+   
     }
 }

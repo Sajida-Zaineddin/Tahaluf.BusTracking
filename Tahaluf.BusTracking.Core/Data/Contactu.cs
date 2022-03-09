@@ -14,7 +14,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public string Subject { get; set; }
         public string Massage { get; set; }
 
-       string s
         public virtual ICollection<Website> Websites { get; set; }
     }
 }
