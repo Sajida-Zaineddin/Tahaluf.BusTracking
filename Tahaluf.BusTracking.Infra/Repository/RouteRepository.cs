@@ -41,7 +41,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
 
         public List<Route> GETALLROUTE()
         {
-            IEnumerable<Route> result = DbContext.Connection.Query<Route>("ROUTE_PACKAGE.GETALLAROUTE", commandType: CommandType.StoredProcedure);
+            IEnumerable<Route> result = DbContext.Connection.Query<Route>("ROUTE_PACKAGE.GETALLROUTE", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
