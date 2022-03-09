@@ -33,11 +33,39 @@ namespace Tahaluf.BusTracking.API
         {
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
+            //AboutusEditor
+            services.AddScoped<IAboutusEditorRepository, AboutusEditorRepository>();
+            services.AddScoped<IAboutusEditorService, AboutusEditorService>();
+            //Attendance
+            services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+            services.AddScoped<IAttendanceService, AttendanceService>();
+            //Bus
+            services.AddScoped<IBusRepository, BusRepository>();
+            services.AddScoped<IBusService, BusService>();
+            //Contactus
+            services.AddScoped<IContactusRepository, ContactusRepository>();
+            services.AddScoped<IContactusService, ContactusService>();
+            //Role
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleService, RoleService>();
+            //Route
             services.AddScoped<IRouteRepository, RouteRepository>();
+            services.AddScoped<IRouteService, RouteService>();
+            //Student
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IStudentService, StudentService>();
+            //Testimonial
             services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             services.AddScoped<ITestimonialService, TestimonialService>();
-            services.AddScoped<IContactusRepository, ContactusRepository>();
-            services.AddScoped<IContactusService, ContactusService>();  
+            //User
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            //Website
+            services.AddScoped<IWebsiteRepository, WebsiteRepository>();
+            services.AddScoped<IWebsiteService, WebsiteService>();
+            //Websitefooter
+            services.AddScoped<IWebsitefooterRepository, WebsitefooterRepository>();
+            services.AddScoped<IWebsitefooterService, WebsitefooterService>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
