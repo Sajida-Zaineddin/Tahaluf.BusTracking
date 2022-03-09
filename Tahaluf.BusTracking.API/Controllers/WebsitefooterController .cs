@@ -8,21 +8,21 @@ namespace Tahaluf.BusTracking.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoleController : ControllerBase
+    public class WebsitefooterController : ControllerBase
     {
-        private readonly IRoleService roleService;
-        public RoleController(IRoleService _roleService)
+        private readonly IWebsitefooterService websitefooterService;
+        public WebsitefooterController(IWebsitefooterService _websitefooterService)
         {
-            roleService = _roleService;
+            websitefooterService = _websitefooterService;
         }
 
         
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(List<Role>), StatusCodes.Status200OK)]
-        public List<Role> GetAllRole()
+        [ProducesResponseType(typeof(List<Websitefooter>), StatusCodes.Status200OK)]
+        public List<Websitefooter> GetAllwebsitefooter()
         {
-            return roleService.GetAllRole();
+            return websitefooterService.GetAllwebsitefooter();
         }
 
 
@@ -30,9 +30,9 @@ namespace Tahaluf.BusTracking.API.Controllers
         [Route("Create")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(bool), StatusCodes.Status400BadRequest)]
-        public bool CreateRole([FromBody] Role role)
+        public bool Createwebsitefooter([FromBody] Websitefooter websitefooter)
         {
-            return roleService.CreateRole(role);
+            return websitefooterService.Createwebsitefooter(websitefooter);
         }
 
 
@@ -40,9 +40,9 @@ namespace Tahaluf.BusTracking.API.Controllers
         [Route("Update")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(bool), StatusCodes.Status400BadRequest)]
-        public bool UpdateRole([FromBody] Role role)
+        public bool Updatewebsitefooter([FromBody] Websitefooter websitefooter)
         {
-            return roleService.UpdateRole(role);
+            return websitefooterService.Updatewebsitefooter(websitefooter);
         }
 
 
@@ -50,10 +50,10 @@ namespace Tahaluf.BusTracking.API.Controllers
         [Route("Delete/{id}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(bool), StatusCodes.Status400BadRequest)]
-        public bool DeleteRole(int Id)
+        public bool Deletewebsitefooter(int Id)
         {
-            return roleService.DeleteRole(Id);
+            return websitefooterService.Deletewebsitefooter(Id);
         }
-
+     
     }
 }
