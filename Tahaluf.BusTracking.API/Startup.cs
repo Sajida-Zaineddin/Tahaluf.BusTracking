@@ -32,6 +32,17 @@ namespace Tahaluf.BusTracking.API
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<IRouteRepository, RouteRepository>();
+
+            //User
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            //Student
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            //Bus
+            services.AddScoped<IBusRepository, BusRepository>();
+            services.AddScoped<IBusRepository, BusRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
