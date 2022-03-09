@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Tahaluf.BusTracking.Core.Repository
+namespace Tahaluf.BusTracking.Core.Service
 {
-    public interface ILoginRepository
+    public interface IAboutusEditorService
     {
     }
 }
