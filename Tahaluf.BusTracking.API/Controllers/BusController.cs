@@ -22,28 +22,29 @@ namespace Tahaluf.BusTracking.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllBus")]
+        [Route("GetAll")]
+        [ProducesResponseType(typeof(List<Bu>), StatusCodes.Status200OK)]
         public List<Bu> GetAllBus()
         {
             return _busService.GetAllBus();
         }
 
         [HttpPost]
-        [Route("CreateBus")]
+        [Route("Create")]
         public bool CreateBus([FromBody] Bu bus)
         {
             return _busService.CreateBus(bus);
         }
 
         [HttpPut]
-        [Route("UpdateBus")]
+        [Route("Update")]
         public bool UpdateBus([FromBody] Bu bus)
         {
             return _busService.UpdateBus(bus);
         }
 
         [HttpDelete]
-        [Route("DeleteBus/{id}")]
+        [Route("Delete/{id}")]
         public bool DeleteBus(int id)
         {
             return _busService.DeleteBus(id);

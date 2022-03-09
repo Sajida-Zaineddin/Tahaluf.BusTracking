@@ -21,31 +21,30 @@ namespace Tahaluf.BusTracking.API.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllStudent")]
+        [Route("GetAll")]
+        [ProducesResponseType(typeof(List<Student>), StatusCodes.Status200OK)]
         // anyone with token or [Authorize(Role = "Teacher, Student")] [Authorize] 
-        //[ProducesResponseType(typeof(List<Student>), StatusCodes.Status200OK)]
-        //[Route("api/[controller]")]
         public List<Student> GetAllStudent()
         {
             return _studentService.GetAllStudent();
         }
 
         [HttpPost]
-        [Route("CreateStudent")]
+        [Route("Create")]
         public bool CreateStudent([FromBody] Student student)
         {
             return _studentService.CreateStudent(student);
         }
 
         [HttpPut]
-        [Route("UpdateStudent")]
+        [Route("Update")]
         public bool UpdateStudent([FromBody] Student student)
         {
             return _studentService.UpdateStudent(student);
         }
 
         [HttpDelete]
-        [Route("DeleteStudent/{id}")]
+        [Route("Delete/{id}")]
         public bool DeleteStudent(int id)
         {
             return _studentService.DeleteStudent(id);

@@ -21,8 +21,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             aboutusEditorService = _aboutusEditorService;
         }
 
-
-
         [HttpGet]
         [ProducesResponseType(typeof(List<Aboutuseditor>), StatusCodes.Status200OK)]
         [Route("GetAll")]
@@ -30,7 +28,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return aboutusEditorService.GETAABOUTUSEDITOR();
         }
-
 
         [HttpPost]
         [Route("Create")]

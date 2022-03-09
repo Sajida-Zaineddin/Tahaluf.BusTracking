@@ -22,6 +22,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
+        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
         public List<User> GetAllUser()
         {
             return _userService.GetAllUser();
