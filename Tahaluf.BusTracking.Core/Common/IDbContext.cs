@@ -7,6 +7,6 @@ namespace Tahaluf.BusTracking.Core.Common
 {
   public  interface IDbContext
     {
-        DbConnection Connection { get; }
+       DbConnection Connection { get; }
     }
 }

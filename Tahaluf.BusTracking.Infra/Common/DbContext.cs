@@ -37,6 +37,5 @@ namespace Tahaluf.BusTracking.Infra.Common
             }
         }
 
-    
-}
+    }
 }
