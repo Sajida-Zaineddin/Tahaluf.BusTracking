@@ -10,6 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tahaluf.BusTracking.Core.Repository;
+using Tahaluf.BusTracking.Core.Service;
+using Tahaluf.BusTracking.Infra.Repository;
+using Tahaluf.BusTracking.Infra.Service;
 
 namespace Tahaluf.BusTracking.API
 {
@@ -26,6 +30,16 @@ namespace Tahaluf.BusTracking.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //User
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            //Student
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IStudentService, StudentService>();
+            //Bus
+            services.AddScoped<IBusRepository, BusRepository>();
+            services.AddScoped<IBusService, BusService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
