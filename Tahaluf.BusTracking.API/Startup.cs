@@ -34,11 +34,10 @@ namespace Tahaluf.BusTracking.API
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<IRouteRepository, RouteRepository>();
-            services.AddScoped<IRoleRepository, RoleRepository>();
-            services.AddScoped<IRoleService, RoleService>();
-            services.AddScoped<IWebsiteRepository, WebsiteRepository>();
-            services.AddScoped<IWebsiteService, WebsiteService>();
-
+            services.AddScoped<ITestimonialRepository, TestimonialRepository>();
+            services.AddScoped<ITestimonialService, TestimonialService>();
+            services.AddScoped<IContactusRepository, ContactusRepository>();
+            services.AddScoped<IContactusService, ContactusService>();  
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
