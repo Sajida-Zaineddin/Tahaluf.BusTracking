@@ -20,10 +20,10 @@ namespace Tahaluf.BusTracking.Infra.Repository
         public bool CREATEATTENDANCE(Attendance attendance)
         {
             var p = new DynamicParameters();
-            p.Add("DATE_OD_ATTENDANCE", attendance.Attendancestatus, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("DATE_OF_ATTENDANCE", attendance.Dateofattendance, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("STUDENT_ID", attendance.Studentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("BUS_ID", attendance.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("ATTENDANCE_STATUS", attendance.Attendancestatus, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ATTENDANCE_STATUS", attendance.Attendancestatus, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
 
             var result = DbContext.Connection.ExecuteAsync("ATTENDANCE_PACKAGE.CREATEATTENDANCE", p, commandType: CommandType.StoredProcedure);
@@ -49,10 +49,10 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var p = new DynamicParameters();
 
             p.Add("ATTENDANCEID", attendance.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("DATE_OD_ATTENDANCE", attendance.Attendancestatus, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("DATE_OF_ATTENDANCE", attendance.Dateofattendance, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("STUDENT_ID", attendance.Studentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("BUS_ID", attendance.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("ATTENDANCE_STATUS", attendance.Attendancestatus, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ATTENDANCE_STATUS", attendance.Attendancestatus, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("ATTENDANCE_PACKAGE.UPDATEATTENDANCE", p, commandType: CommandType.StoredProcedure);
             return true;

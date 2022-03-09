@@ -21,8 +21,8 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("IMG", aboutuseditor.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("TXT", aboutuseditor.Text, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("INFO", aboutuseditor.Titel, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("TXT", aboutuseditor.Titel, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("INFO", aboutuseditor.Text, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ABID", aboutuseditor.Aboutid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("ABOUTUSEDITOR_PACKAGE.CREATEABOUTUSEDITOR", p, commandType: CommandType.StoredProcedure);
             return true;
@@ -31,7 +31,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         public string DELETEABOUTUSEDITOR(int id)
         {
             var p = new DynamicParameters();
-            p.Add("ROUTEID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("AUEID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("ABOUTUSEDITOR_PACKAGE.DELETEABOUTUSEDITOR", p, commandType: CommandType.StoredProcedure);
             return "Succesfully deleted";
         }
@@ -39,7 +39,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         public List<Aboutuseditor> GETAABOUTUSEDITOR()
         {
 
-            IEnumerable<Aboutuseditor> result = DbContext.Connection.Query<Aboutuseditor>("ABOUTUSEDITOR_PACKAGE.GETALLATTENDANCE", commandType: CommandType.StoredProcedure);
+            IEnumerable<Aboutuseditor> result = DbContext.Connection.Query<Aboutuseditor>("ABOUTUSEDITOR_PACKAGE.GETAABOUTUSEDITOR", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -48,8 +48,8 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var p = new DynamicParameters();
             p.Add("AUEID", aboutuseditor.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("IMG", aboutuseditor.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("TXT", aboutuseditor.Text, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("INFO", aboutuseditor.Titel, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("TXT", aboutuseditor.Titel, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("INFO", aboutuseditor.Text, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ABID", aboutuseditor.Aboutid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("ABOUTUSEDITOR_PACKAGE.UPDATEABOUTUSEDITOR", p, commandType: CommandType.StoredProcedure);
