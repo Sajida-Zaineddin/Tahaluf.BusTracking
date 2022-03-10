@@ -52,9 +52,9 @@ namespace Tahaluf.BusTracking.API.Controllers
         [Route("Delete/{id}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(bool), StatusCodes.Status400BadRequest)]
-        public bool Deletewebsitehome(int Id)
+        public bool Deletewebsitehome(int id)
         {
-            return websitehomeService.Deletewebsitehome(Id);
+            return websitehomeService.Deletewebsitehome(id);
         }
 
         [HttpPost]
