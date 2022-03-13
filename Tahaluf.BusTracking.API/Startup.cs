@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,8 @@ using Tahaluf.BusTracking.Core.Service;
 using Tahaluf.BusTracking.Infra.Common;
 using Tahaluf.BusTracking.Infra.Repository;
 using Tahaluf.BusTracking.Infra.Service;
+using System.Text;
+
 
 namespace Tahaluf.BusTracking.API
 {
@@ -40,6 +44,27 @@ namespace Tahaluf.BusTracking.API
             services.AddScoped<IContactusService, ContactusService>();
             services.AddScoped<IAboutusRepository, AboutusRepository>();
             services.AddScoped<IAboutusService, AboutusService>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<ILoginService, LoginService>();
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        //ValidIssuer = "http://localhost:5000",
+        //ValidAudience = "http://localhost:5000",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("welcome to eqbal site"))
+    };
+});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
