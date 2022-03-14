@@ -63,9 +63,12 @@ namespace Tahaluf.BusTracking.API
             //Website
             services.AddScoped<IWebsiteRepository, WebsiteRepository>();
             services.AddScoped<IWebsiteService, WebsiteService>();
-            //Websitefooter
+            //WebsiteFooter
             services.AddScoped<IWebsitefooterRepository, WebsitefooterRepository>();
-            services.AddScoped<IWebsitefooterService, WebsitefooterService>(); 
+            services.AddScoped<IWebsitefooterService, WebsitefooterService>();
+            //WebsiteHome
+            services.AddScoped<IWebsitehomeRepository, WebsitehomeRepository>();
+            services.AddScoped<IWebsitehomeService, WebsitehomeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
