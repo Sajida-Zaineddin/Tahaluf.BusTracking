@@ -26,8 +26,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         public bool CreateStudent(Student student)
         {
             var p = new DynamicParameters();
-            p.Add("FNAME", student.Firstname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LNAME", student.Lastname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("NAME", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("X_HOME", student.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Y_HOME", student.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("STD_GRADE", student.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -43,8 +42,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("STUDENT_ID", student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("FNAME", student.Firstname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LNAME", student.Lastname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("NAME", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("X_HOME", student.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Y_HOME", student.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("STD_GRADE", student.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
