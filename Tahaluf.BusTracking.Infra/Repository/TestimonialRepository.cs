@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 
 namespace Tahaluf.BusTracking.Infra.Repository
@@ -23,36 +24,34 @@ namespace Tahaluf.BusTracking.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public List<Testimonial> GetAllTestimonials()
+        public List<Test> GetAllTestimonials()
         {
-            IEnumerable<Testimonial> result = DbContext.Connection.Query<Testimonial>("TESTIMONIAL_PACKAGE.GETALLTESTIMONIALS", commandType: CommandType.StoredProcedure);
+            IEnumerable<Test> result = DbContext.Connection.Query<Test>("gettestDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
-        public bool CreateTestimonial(Testimonial testimonial)
+        public bool CreateTestimonial(Test testimonial)
         {
             var p = new DynamicParameters();
             p.Add("userName", testimonial.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("photo", testimonial.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("opinion", testimonial.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("testStatId", testimonial.Statusid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("testStat", testimonial.Status, dbType: DbType.String, direction: ParameterDirection.Input);
 
-            var result = DbContext.Connection.ExecuteAsync("TESTIMONIAL_PACKAGE.CREATETESTIMONIAL", p, commandType: CommandType.StoredProcedure);
+            var result = DbContext.Connection.ExecuteAsync("testcreate", p, commandType: CommandType.StoredProcedure);
 
             return true;
         }
 
-        public bool UpdateTestimonial(Testimonial testimonial)
+        public bool UpdateTestimonial(testUpdateDTO testimonial)
         {
             var p = new DynamicParameters();
             
             p.Add("testId", testimonial.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("userName", testimonial.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("photo", testimonial.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("opinion", testimonial.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("testStatId", testimonial.Statusid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("testStat", testimonial.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+           
 
-            var result = DbContext.Connection.ExecuteAsync("TESTIMONIAL_PACKAGE.UPDATETESTIMONIAL", p, commandType: CommandType.StoredProcedure);
+            var result = DbContext.Connection.ExecuteAsync("testcreateUpdate", p, commandType: CommandType.StoredProcedure);
 
             return true;
         }
@@ -66,7 +65,11 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return "deleted successfuly";
         }
 
-     
-       
+        public List<Testimonialstatus> GetTestimonialStatus()
+        {
+            IEnumerable<Testimonialstatus> result = DbContext.Connection.Query<Testimonialstatus>("TESTIMONIALSTATUS_PACKAGE.GETALLTESTIMONIALSTATUS", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
     }
 }

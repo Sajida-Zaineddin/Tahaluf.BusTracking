@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 using Tahaluf.BusTracking.Core.Service;
 
@@ -18,7 +19,7 @@ namespace Tahaluf.BusTracking.Infra.Service
             _testimonialRepository = testimonialRepository;
         }
 
-        public bool CreateTestimonial(Testimonial testimonial)
+        public bool CreateTestimonial(Test testimonial)
         {
            return _testimonialRepository.CreateTestimonial(testimonial);
         }
@@ -28,14 +29,19 @@ namespace Tahaluf.BusTracking.Infra.Service
             return _testimonialRepository.DeleteTestimonial(id);
         }
 
-        public List<Testimonial> GetAllTestimonials()
+        public List<Test> GetAllTestimonials()
         {
             return _testimonialRepository.GetAllTestimonials();
         }
 
-        public bool UpdateTestimonial(Testimonial testimonial)
+        public bool UpdateTestimonial(testUpdateDTO testimonial)
         {
             return _testimonialRepository.UpdateTestimonial(testimonial);
+        }
+
+        public List<Testimonialstatus> GetTestimonialStatus() { 
+        
+            return _testimonialRepository.GetTestimonialStatus();
         }
     }
 }

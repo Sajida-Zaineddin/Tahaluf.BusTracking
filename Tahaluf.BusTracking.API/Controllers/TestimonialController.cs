@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.API.Controllers
@@ -24,7 +25,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(List<Testimonial>), StatusCodes.Status200OK)]
-        public List<Testimonial> GetAllTestimonial()
+        public List<Test> GetAllTestimonial()
         {
             return testimonialService.GetAllTestimonials();
             
@@ -32,7 +33,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPost]
         [Route("CreateTestimonial")]
-        public bool CREATETestimonial([FromBody] Testimonial  testimonial)
+        public bool CREATETestimonial([FromBody] Test testimonial)
         {
             return testimonialService.CreateTestimonial(testimonial);
         }
@@ -48,7 +49,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPut]
         [Route("UpdateTestimonial")]
-        public bool UPDATEATestimonial([FromBody] Testimonial  testimonial)
+        public bool UPDATEATestimonial([FromBody] testUpdateDTO testimonial)
         {
             return testimonialService.UpdateTestimonial(testimonial);
         }
@@ -84,6 +85,13 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 return null;
             }
+        }
+
+        [HttpGet]
+        [Route("GetTestimonialStatus")]
+        public List<Testimonialstatus> GetTestimonialStatus() { 
+        
+            return testimonialService.GetTestimonialStatus();
         }
     }
 }
