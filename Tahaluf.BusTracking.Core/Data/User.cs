@@ -9,8 +9,8 @@ namespace Tahaluf.BusTracking.Core.Data
     {
       
         public decimal Id { get; set; }
-        public string Firsname { get; set; }
-        public string Lastname { get; set; }
+        public string Name { get; set; }
+
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Imagepath { get; set; }
