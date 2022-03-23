@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.API.Controllers
@@ -22,9 +23,9 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(List<Student>), StatusCodes.Status200OK)]
+       // [ProducesResponseType(typeof(List<Student>), StatusCodes.Status200OK)]
         // anyone with token or [Authorize(Role = "Teacher, Student")] [Authorize] 
-        public List<Student> GetAllStudent()
+        public List<StudentDto> GetAllStudent()
         {
             return _studentService.GetAllStudent();
         }

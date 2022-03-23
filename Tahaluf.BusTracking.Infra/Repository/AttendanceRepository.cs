@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 
 namespace Tahaluf.BusTracking.Infra.Repository
@@ -38,9 +39,9 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return "Succesfully deleted";
         }
 
-        public List<Attendance> GETALLATTENDANCE()
+        public List<AttendanceDto> GETALLATTENDANCE()
         {
-            IEnumerable<Attendance> result = DbContext.Connection.Query<Attendance>("ATTENDANCE_PACKAGE.GETALLATTENDANCE", commandType: CommandType.StoredProcedure);
+            IEnumerable<AttendanceDto> result = DbContext.Connection.Query<AttendanceDto>("ATTENDANCE_PACKAGE.GETATTENDANCEDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

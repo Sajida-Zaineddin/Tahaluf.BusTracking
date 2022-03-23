@@ -27,7 +27,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         public bool CreateUser(User user)
         {
             var p = new DynamicParameters();
-            p.Add("NAME", user.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("FULLNAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
      
             p.Add("MAIL", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -42,7 +42,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("USERS_ID", user.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("NAME", user.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("FULLNAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MAIL", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);

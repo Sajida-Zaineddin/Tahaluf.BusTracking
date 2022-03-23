@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 
 namespace Tahaluf.BusTracking.Infra.Repository
@@ -18,9 +19,9 @@ namespace Tahaluf.BusTracking.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public List<Student> GetAllStudent()
+        public List<StudentDto> GetAllStudent()
         {
-            IEnumerable<Student> result = DbContext.Connection.Query<Student>("STUDENT_PACKAGE.GETALLSTUDENTS", commandType: CommandType.StoredProcedure);
+            IEnumerable<StudentDto> result = DbContext.Connection.Query<StudentDto>("STUDENT_PACKAGE.GETSTUDENTDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool CreateStudent(Student student)

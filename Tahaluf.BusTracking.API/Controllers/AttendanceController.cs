@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.API.Controllers
@@ -23,7 +24,7 @@ namespace Tahaluf.BusTracking.API.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(List<Attendance>), StatusCodes.Status200OK)]
         [Route("GetAll")]
-        public List<Attendance> GETALLATTENDANCE()
+        public List<AttendanceDto> GETALLATTENDANCE()
         {
             return attendanceService.GETALLATTENDANCE();
         }
