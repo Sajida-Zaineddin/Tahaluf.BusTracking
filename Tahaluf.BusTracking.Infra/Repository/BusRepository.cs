@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 
 namespace Tahaluf.BusTracking.Infra.Repository

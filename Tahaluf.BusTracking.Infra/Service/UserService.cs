@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 using Tahaluf.BusTracking.Core.Service;
 
@@ -33,6 +34,16 @@ namespace Tahaluf.BusTracking.Infra.Service
         public bool DeleteUser(int id)
         {
             return userRepository.DeleteUser(id);
+        }
+
+        public List<User> GetAllDrivers()
+        {
+            return userRepository.GetAllDrivers();
+        }
+
+        public List<User> GetAllTeachers() { 
+        
+            return userRepository.GetAllTeachers();
         }
     }
 }
