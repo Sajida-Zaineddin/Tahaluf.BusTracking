@@ -25,7 +25,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(List<Testimonial>), StatusCodes.Status200OK)]
-        public List<Test> GetAllTestimonial()
+        public List<TestimoinealDTO> GetAllTestimonial()
         {
             return testimonialService.GetAllTestimonials();
             
@@ -33,7 +33,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPost]
         [Route("CreateTestimonial")]
-        public bool CREATETestimonial([FromBody] Test testimonial)
+        public bool CREATETestimonial([FromBody] TestimoinealDTO testimonial)
         {
             return testimonialService.CreateTestimonial(testimonial);
         }
@@ -49,7 +49,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPut]
         [Route("UpdateTestimonial")]
-        public bool UPDATEATestimonial([FromBody] testUpdateDTO testimonial)
+        public bool UPDATEATestimonial([FromBody] TestimoinealUpdateDTO testimonial)
         {
             return testimonialService.UpdateTestimonial(testimonial);
         }
@@ -67,7 +67,7 @@ namespace Tahaluf.BusTracking.API.Controllers
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
 
                 // create folder "Images" in Tahaluf.LMS.API
-                var fullPath = Path.Combine("Images", fileName);
+                var fullPath = Path.Combine("C:\\Users\\eqbal\\Documents\\GitHub\\BusTrackingAngular\\src\\assets\\images", fileName);
 
                 // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))

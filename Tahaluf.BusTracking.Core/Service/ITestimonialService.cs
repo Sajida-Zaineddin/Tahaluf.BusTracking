@@ -8,11 +8,11 @@ namespace Tahaluf.BusTracking.Core.Service
 {
     public interface ITestimonialService
     {
-        List<Test> GetAllTestimonials();
+        List<TestimoinealDTO> GetAllTestimonials();
 
-        bool CreateTestimonial(Test testimonial);
+        bool CreateTestimonial(TestimoinealDTO testimonial);
 
-        bool UpdateTestimonial(testUpdateDTO testimonial);
+        bool UpdateTestimonial(TestimoinealUpdateDTO testimonial);
 
         string DeleteTestimonial(int id);
 
