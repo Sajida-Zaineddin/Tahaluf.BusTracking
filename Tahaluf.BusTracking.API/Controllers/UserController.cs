@@ -37,6 +37,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPut]
         [Route("Update")]
+
         public bool UpdateUser([FromBody] User user)
         {
             return _userService.UpdateUser(user);
@@ -62,8 +63,7 @@ namespace Tahaluf.BusTracking.API.Controllers
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
 
                 // create folder "Images" in Tahaluf.LMS.API
-                var fullPath = Path.Combine("Images", fileName);
-
+                var fullPath = Path.Combine("D:\\Training\\Tahaluf Training Center 2021\\Chapters\\Final Project\\BusTrackingAngular\\src\\assets\\images", fileName);
                 // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
