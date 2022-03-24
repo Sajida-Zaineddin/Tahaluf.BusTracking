@@ -31,5 +31,20 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return studentRepository.DeleteStudent(id);
         }
+
+        public List<Roundstatus> GETROUNDSTATUS()
+        {
+            return studentRepository.GETROUNDSTATUS();
+        }
+
+        public List<User> GETPARENTNAME()
+        {
+            return studentRepository.GETPARENTNAME();
+        }
+
+        public List<Bu> GETBUSNUMBER()
+        {
+            return studentRepository.GETBUSNUMBER();
+        }
     }
 }

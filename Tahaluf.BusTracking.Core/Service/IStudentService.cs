@@ -12,5 +12,8 @@ namespace Tahaluf.BusTracking.Core.Service
         bool CreateStudent(StudentDto studentdto);
         bool UpdateStudent(StudentDto studentdto);
         bool DeleteStudent(int id);
+        List<Roundstatus> GETROUNDSTATUS();
+        List<User> GETPARENTNAME();
+        List<Bu> GETBUSNUMBER();
     }
 }

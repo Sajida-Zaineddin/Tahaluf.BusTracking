@@ -29,6 +29,31 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return _studentService.GetAllStudent();
         }
+        [HttpGet]
+        [Route("GetRoundStatus")]
+        public List<Roundstatus> GETROUNDSTATUS()
+        {
+            return _studentService.GETROUNDSTATUS();
+        }
+
+
+        [HttpGet]
+        [Route("GetParentName")]
+        public List<User> GETPARENTNAME()
+        {
+            return _studentService.GETPARENTNAME();
+
+        }
+  
+        [HttpGet]
+        [Route("GetBusNum")]
+        public List<Bu> GETBUSNUMBER()
+        {
+            return _studentService.GETBUSNUMBER();
+
+        }
+
+
 
         [HttpPost]
         [Route("Create")]

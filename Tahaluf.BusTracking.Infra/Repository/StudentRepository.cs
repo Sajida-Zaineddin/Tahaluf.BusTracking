@@ -64,5 +64,24 @@ namespace Tahaluf.BusTracking.Infra.Repository
 
             return true;
         }
+
+        public List<Roundstatus> GETROUNDSTATUS()
+        {
+            IEnumerable<Roundstatus> result = DbContext.Connection.Query<Roundstatus>("ROUNDSTATUS_PACKAGE.GETROUNDSTATUS", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+
+        public List<User> GETPARENTNAME()
+        {
+            IEnumerable<User> result = DbContext.Connection.Query<User>("USERS_PACKAGE.GETPARENTNAME", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public List<Bu> GETBUSNUMBER()
+        {
+            IEnumerable<Bu> result = DbContext.Connection.Query<Bu>("BUS_PACKAGE.GETBUSNUMBER", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
     }
 }
