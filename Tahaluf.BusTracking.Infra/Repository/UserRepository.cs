@@ -28,7 +28,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("FULLNAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
-     
             p.Add("MAIL", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
