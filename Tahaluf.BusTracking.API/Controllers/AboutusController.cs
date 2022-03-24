@@ -66,7 +66,7 @@ namespace Tahaluf.BusTracking.API.Controllers
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
 
                 // create folder "Images" in Tahaluf.LMS.API
-                var fullPath = Path.Combine("Images", fileName);
+                var fullPath = Path.Combine("C:\\Users\\eqbal\\Documents\\GitHub\\BusTrackingAngular\\src\\assets\\images", fileName);
 
                 // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))
@@ -84,6 +84,13 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 return null;
             }
+        }
+
+        [HttpGet]
+        [Route("GetById/{id}")]
+        public Aboutu GetById(int id) { 
+        
+        return aboutusService.GetById(id);
         }
     }
 }

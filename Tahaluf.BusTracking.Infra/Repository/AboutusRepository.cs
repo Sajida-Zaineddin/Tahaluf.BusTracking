@@ -67,5 +67,13 @@ namespace Tahaluf.BusTracking.Infra.Repository
 
             return "deleted successfuly";
         }
+
+        public Aboutu GetById(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("p", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Aboutu> result = DbContext.Connection.Query<Aboutu>("GetById", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
     }
 }
