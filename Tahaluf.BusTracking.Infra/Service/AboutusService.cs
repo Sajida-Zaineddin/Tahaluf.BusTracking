@@ -38,6 +38,9 @@ namespace Tahaluf.BusTracking.Infra.Service
             return aboutusRepository.DeleteAboutus(id);
         }
 
+        public Aboutu GetById(int id) {
 
+            return aboutusRepository.GetById(id);
+        }
     }
 }

@@ -15,5 +15,8 @@ namespace Tahaluf.BusTracking.Core.Repository
         bool UpdateAboutus(Aboutu aboutu);
 
         string DeleteAboutus(int id);
+
+        Aboutu GetById(int id);
+
     }
 }

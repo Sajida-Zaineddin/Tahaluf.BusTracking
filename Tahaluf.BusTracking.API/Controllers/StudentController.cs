@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.API.Controllers
@@ -22,25 +23,50 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(List<Student>), StatusCodes.Status200OK)]
+       // [ProducesResponseType(typeof(List<Student>), StatusCodes.Status200OK)]
         // anyone with token or [Authorize(Role = "Teacher, Student")] [Authorize] 
-        public List<Student> GetAllStudent()
+        public List<StudentDto> GetAllStudent()
         {
             return _studentService.GetAllStudent();
         }
+        [HttpGet]
+        [Route("GetRoundStatus")]
+        public List<Roundstatus> GETROUNDSTATUS()
+        {
+            return _studentService.GETROUNDSTATUS();
+        }
+
+
+        [HttpGet]
+        [Route("GetParentName")]
+        public List<User> GETPARENTNAME()
+        {
+            return _studentService.GETPARENTNAME();
+
+        }
+  
+        [HttpGet]
+        [Route("GetBusNum")]
+        public List<Bu> GETBUSNUMBER()
+        {
+            return _studentService.GETBUSNUMBER();
+
+        }
+
+
 
         [HttpPost]
         [Route("Create")]
-        public bool CreateStudent([FromBody] Student student)
+        public bool CreateStudent([FromBody] StudentDto studentdto)
         {
-            return _studentService.CreateStudent(student);
+            return _studentService.CreateStudent(studentdto);
         }
 
         [HttpPut]
         [Route("Update")]
-        public bool UpdateStudent([FromBody] Student student)
+        public bool UpdateStudent([FromBody] StudentDto studentdto)
         {
-            return _studentService.UpdateStudent(student);
+            return _studentService.UpdateStudent(studentdto);
         }
 
         [HttpDelete]

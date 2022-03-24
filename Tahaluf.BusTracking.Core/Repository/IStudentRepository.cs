@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 
 namespace Tahaluf.BusTracking.Core.Repository
 {
     public interface IStudentRepository
     {
-        List<Student> GetAllStudent();
-        bool CreateStudent(Student student);
-        bool UpdateStudent(Student student);
+        List<StudentDto> GetAllStudent();
+        bool CreateStudent(StudentDto studentdto);
+        bool UpdateStudent(StudentDto studentdto);
         bool DeleteStudent(int id);
+         List<Roundstatus> GETROUNDSTATUS();
+         List<User> GETPARENTNAME();
+         List<Bu> GETBUSNUMBER();
+
+
+
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 
 namespace Tahaluf.BusTracking.Infra.Repository
@@ -17,16 +18,16 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             DbContext = _DbContext;
         }
-        public bool CREATEATTENDANCE(Attendance attendance)
+        public bool CREATEATTENDANCE(AttendanceDto attendancedto)
         {
             var p = new DynamicParameters();
-            p.Add("DATE_OF_ATTENDANCE", attendance.Dateofattendance, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("STUDENT_ID", attendance.Studentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("BUS_ID", attendance.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("ATTENDANCE_STATUS", attendance.Attendancestatus, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("DATE_OF_ATTENDANCE", attendancedto.Dateofattendance, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("STATUS", attendancedto.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("NAME", attendancedto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("BUSNUMBER", attendancedto.Busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
 
-            var result = DbContext.Connection.ExecuteAsync("ATTENDANCE_PACKAGE.CREATEATTENDANCE", p, commandType: CommandType.StoredProcedure);
+        var result = DbContext.Connection.ExecuteAsync("ATTENDANCE_PACKAGE.CREATEATTENDANCE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -38,21 +39,21 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return "Succesfully deleted";
         }
 
-        public List<Attendance> GETALLATTENDANCE()
+        public List<AttendanceDto> GETALLATTENDANCE()
         {
-            IEnumerable<Attendance> result = DbContext.Connection.Query<Attendance>("ATTENDANCE_PACKAGE.GETALLATTENDANCE", commandType: CommandType.StoredProcedure);
+            IEnumerable<AttendanceDto> result = DbContext.Connection.Query<AttendanceDto>("ATTENDANCE_PACKAGE.GETATTENDANCEDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
-        public bool UPDATEATTENDANCE(Attendance attendance)
+        public bool UPDATEATTENDANCE(AttendanceDto attendancedto)
         {
             var p = new DynamicParameters();
 
-            p.Add("ATTENDANCEID", attendance.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("DATE_OF_ATTENDANCE", attendance.Dateofattendance, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("STUDENT_ID", attendance.Studentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("BUS_ID", attendance.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("ATTENDANCE_STATUS", attendance.Attendancestatus, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("ATTENDANCEID", attendancedto.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("DATE_OF_ATTENDANCE", attendancedto.Dateofattendance, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("STATUS", attendancedto.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("NAME", attendancedto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("BUSNUMBER", attendancedto.Busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("ATTENDANCE_PACKAGE.UPDATEATTENDANCE", p, commandType: CommandType.StoredProcedure);
             return true;
