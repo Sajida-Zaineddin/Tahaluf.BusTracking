@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 using Tahaluf.BusTracking.Core.Service;
 
@@ -14,7 +15,7 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             studentRepository = _studentRepository;
         }
-        public List<Student> GetAllStudent() 
+        public List<StudentDto> GetAllStudent() 
         {
             return studentRepository.GetAllStudent();
         }

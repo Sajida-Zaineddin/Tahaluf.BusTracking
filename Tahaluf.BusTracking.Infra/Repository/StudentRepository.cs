@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 
 namespace Tahaluf.BusTracking.Infra.Repository
@@ -18,16 +19,15 @@ namespace Tahaluf.BusTracking.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public List<Student> GetAllStudent()
+        public List<StudentDto> GetAllStudent()
         {
-            IEnumerable<Student> result = DbContext.Connection.Query<Student>("STUDENT_PACKAGE.GETALLSTUDENTS", commandType: CommandType.StoredProcedure);
+            IEnumerable<StudentDto> result = DbContext.Connection.Query<StudentDto>("STUDENT_PACKAGE.GETSTUDENTDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool CreateStudent(Student student)
         {
             var p = new DynamicParameters();
-            p.Add("FNAME", student.Firstname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LNAME", student.Lastname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("NAME", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("X_HOME", student.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Y_HOME", student.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("STD_GRADE", student.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -43,8 +43,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("STUDENT_ID", student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("FNAME", student.Firstname, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("LNAME", student.Lastname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("NAME", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("X_HOME", student.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Y_HOME", student.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("STD_GRADE", student.Grade, dbType: DbType.String, direction: ParameterDirection.Input);

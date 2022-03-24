@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 using Tahaluf.BusTracking.Core.Service;
 
@@ -25,7 +26,7 @@ namespace Tahaluf.BusTracking.Infra.Service
             return attendanceRepository.DELETEATTENDANCE(id);
         }
 
-        public List<Attendance> GETALLATTENDANCE()
+        public List<AttendanceDto> GETALLATTENDANCE()
         {
             return attendanceRepository.GETALLATTENDANCE();
         }
