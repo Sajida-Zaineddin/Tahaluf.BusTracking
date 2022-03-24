@@ -32,9 +32,9 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public bool CREATEATTENDANCE([FromBody] Attendance attendance)
+        public bool CREATEATTENDANCE([FromBody] AttendanceDto attendancedto)
         {
-            return attendanceService.CREATEATTENDANCE(attendance);
+            return attendanceService.CREATEATTENDANCE(attendancedto);
         }
 
         [HttpDelete]
@@ -47,9 +47,9 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public bool UPDATEATTENDANCE([FromBody] Attendance attendance)
+        public bool UPDATEATTENDANCE([FromBody] AttendanceDto attendancedto)
         {
-            return attendanceService.UPDATEATTENDANCE(attendance);
+            return attendanceService.UPDATEATTENDANCE(attendancedto);
         }
     }
 }

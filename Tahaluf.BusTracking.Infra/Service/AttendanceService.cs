@@ -16,10 +16,11 @@ namespace Tahaluf.BusTracking.Infra.Service
             attendanceRepository = _attendanceRepository;
 
         }
-        public bool CREATEATTENDANCE(Attendance attendance)
+        public bool CREATEATTENDANCE(AttendanceDto attendancedto)
         {
-            return attendanceRepository.CREATEATTENDANCE(attendance);
+            return attendanceRepository.CREATEATTENDANCE(attendancedto);
         }
+
 
         public string DELETEATTENDANCE(int id)
         {
@@ -31,9 +32,11 @@ namespace Tahaluf.BusTracking.Infra.Service
             return attendanceRepository.GETALLATTENDANCE();
         }
 
-        public bool UPDATEATTENDANCE(Attendance attendance)
+        public bool UPDATEATTENDANCE(AttendanceDto attendancedto)
         {
-            return attendanceRepository.UPDATEATTENDANCE(attendance);
+            return attendanceRepository.UPDATEATTENDANCE(attendancedto);
         }
+
+  
     }
 }

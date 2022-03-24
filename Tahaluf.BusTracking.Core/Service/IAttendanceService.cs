@@ -10,9 +10,9 @@ namespace Tahaluf.BusTracking.Core.Service
     {
         List<AttendanceDto> GETALLATTENDANCE();
 
-        bool CREATEATTENDANCE(Attendance attendance);
+        bool CREATEATTENDANCE(AttendanceDto attendancedto);
 
-        bool UPDATEATTENDANCE(Attendance attendance);
+        bool UPDATEATTENDANCE(AttendanceDto attendancedto);
 
         string DELETEATTENDANCE(int id);
     }

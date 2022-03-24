@@ -32,16 +32,16 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public bool CreateStudent([FromBody] Student student)
+        public bool CreateStudent([FromBody] StudentDto studentdto)
         {
-            return _studentService.CreateStudent(student);
+            return _studentService.CreateStudent(studentdto);
         }
 
         [HttpPut]
         [Route("Update")]
-        public bool UpdateStudent([FromBody] Student student)
+        public bool UpdateStudent([FromBody] StudentDto studentdto)
         {
-            return _studentService.UpdateStudent(student);
+            return _studentService.UpdateStudent(studentdto);
         }
 
         [HttpDelete]

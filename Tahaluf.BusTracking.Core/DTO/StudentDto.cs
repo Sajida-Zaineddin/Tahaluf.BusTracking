@@ -8,12 +8,11 @@ namespace Tahaluf.BusTracking.Core.DTO
     {
         public decimal Id { get; set; }
         public string Name { get; set; }
-
         public string Xhome { get; set; }
         public string Yhome { get; set; }
         public string Grade { get; set; }
         public string Status { get; set; }
-        public decimal busnumber { get; set; }
         public string fullName { get; set; }
+        public decimal busnumber { get; set; }
     }
 }

@@ -9,9 +9,10 @@ namespace Tahaluf.BusTracking.Core.Repository
     public interface IStudentRepository
     {
         List<StudentDto> GetAllStudent();
-        bool CreateStudent(Student student);
-        bool UpdateStudent(Student student);
+        bool CreateStudent(StudentDto studentdto);
+        bool UpdateStudent(StudentDto studentdto);
         bool DeleteStudent(int id);
+
 
     }
 }

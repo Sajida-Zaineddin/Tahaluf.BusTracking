@@ -24,32 +24,34 @@ namespace Tahaluf.BusTracking.Infra.Repository
             IEnumerable<StudentDto> result = DbContext.Connection.Query<StudentDto>("STUDENT_PACKAGE.GETSTUDENTDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public bool CreateStudent(Student student)
+        public bool CreateStudent(StudentDto studentdto)
         {
             var p = new DynamicParameters();
-            p.Add("NAME", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("X_HOME", student.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Y_HOME", student.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("STD_GRADE", student.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("ROUND_ID", student.Roundid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("PARENT_ID", student.Parentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("BUS_ID", student.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            p.Add("NAMEe", studentdto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("X_HOME", studentdto.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Y_HOME", studentdto.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("STD_GRADE", studentdto.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ROUNDSTATUS", studentdto.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("PARENTNAME", studentdto.fullName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("BUS_NUMBER", studentdto.busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
 
             var result = DbContext.Connection.ExecuteAsync("STUDENT_PACKAGE.CREATESTUDENT", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool UpdateStudent(Student student)
+        public bool UpdateStudent(StudentDto studentdto)
         {
             var p = new DynamicParameters();
-            p.Add("STUDENT_ID", student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("NAME", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("X_HOME", student.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Y_HOME", student.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("STD_GRADE", student.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("ROUND_ID", student.Roundid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("PARENT_ID", student.Parentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("BUS_ID", student.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("STUDENT_ID", studentdto.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("NAMEe", studentdto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("X_HOME", studentdto.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Y_HOME", studentdto.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("STD_GRADE", studentdto.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ROUNDSTATUS", studentdto.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("PARENTNAME", studentdto.fullName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("BUS_NUMBER", studentdto.busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
+     
 
             var result = DbContext.Connection.ExecuteAsync("STUDENT_PACKAGE.UPDATESTUDENT", p, commandType: CommandType.StoredProcedure);
             return true;
