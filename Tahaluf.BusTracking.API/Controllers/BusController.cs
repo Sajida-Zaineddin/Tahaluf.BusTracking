@@ -50,5 +50,18 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return _busService.DeleteBus(id);
         }
+
+        [HttpGet]
+        [Route("GetBusDrivers")]
+        public List<GetBusDriversDTO> GetBusDrivers() { 
+         return _busService.GetBusDrivers();
+        }
+
+        [HttpGet]
+        [Route("GetBusTeachers")]
+        public List<GetBusTeachersDTO> GetBusTeaachers() { 
+        
+            return _busService.GetBusTeaachers();
+        }
     }
 }

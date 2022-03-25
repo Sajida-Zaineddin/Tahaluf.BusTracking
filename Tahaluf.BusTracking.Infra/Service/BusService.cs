@@ -33,5 +33,16 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return busRepository.DeleteBus(id);
         }
+
+        public List<GetBusDriversDTO> GetBusDrivers()
+        {
+
+            return busRepository.GetBusDrivers();
+        }
+
+        public List<GetBusTeachersDTO> GetBusTeaachers()
+        {
+            return busRepository.GetBusTeaachers();
+        }
     }
 }

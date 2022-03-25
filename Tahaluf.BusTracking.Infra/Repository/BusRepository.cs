@@ -52,5 +52,17 @@ namespace Tahaluf.BusTracking.Infra.Repository
 
             return true;
         }
+
+        public List<GetBusDriversDTO> GetBusDrivers() {
+
+            IEnumerable<GetBusDriversDTO> result = DbContext.Connection.Query<GetBusDriversDTO>("getBusDrivers", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+        public List<GetBusTeachersDTO> GetBusTeaachers() {
+            IEnumerable<GetBusTeachersDTO> result = DbContext.Connection.Query<GetBusTeachersDTO>("getBusTeachers", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
     }
 }

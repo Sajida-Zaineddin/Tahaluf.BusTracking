@@ -12,5 +12,7 @@ namespace Tahaluf.BusTracking.Core.Service
         bool CreateBus(Bu bus);
         bool UpdateBus(Bu bus);
         bool DeleteBus(int id);
+        List<GetBusDriversDTO> GetBusDrivers();
+        List<GetBusTeachersDTO> GetBusTeaachers();
     }
 }
