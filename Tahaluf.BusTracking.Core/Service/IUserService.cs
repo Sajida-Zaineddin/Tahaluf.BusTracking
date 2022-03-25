@@ -8,13 +8,12 @@ namespace Tahaluf.BusTracking.Core.Service
 {
     public interface IUserService
     {
-        List<User> GetAllUser();
-        bool CreateUser(User user);
-        bool UpdateUser(User user);
-        bool DeleteUser(int id);
-
+        List<UserDTO> GetAllUser();
+        bool CreateUser(UserDTO user);
+        bool UpdateUser(UserDTO user);
+        string DeleteUser(int id);
+        List<Role> GetRole();
         List<User> GetAllDrivers();
-
         List<User> GetAllTeachers();
     }
 }
