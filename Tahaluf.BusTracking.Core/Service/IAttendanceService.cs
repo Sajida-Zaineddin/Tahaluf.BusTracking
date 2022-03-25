@@ -15,5 +15,8 @@ namespace Tahaluf.BusTracking.Core.Service
         bool UPDATEATTENDANCE(AttendanceDto attendancedto);
 
         string DELETEATTENDANCE(int id);
+        List<Bu> GETBUSNUMBER();
+        List<Student> GETSTUDENTNAME();
+        List<Attendancestatus> GETATTENDANCESTATUS();
     }
 }

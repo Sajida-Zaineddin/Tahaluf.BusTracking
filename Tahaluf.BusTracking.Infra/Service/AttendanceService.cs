@@ -32,6 +32,21 @@ namespace Tahaluf.BusTracking.Infra.Service
             return attendanceRepository.GETALLATTENDANCE();
         }
 
+        public List<Attendancestatus> GETATTENDANCESTATUS()
+        {
+            return attendanceRepository.GETATTENDANCESTATUS();
+        }
+
+        public List<Bu> GETBUSNUMBER()
+        {
+            return attendanceRepository.GETBUSNUMBER();
+        }
+
+        public List<Student> GETSTUDENTNAME()
+        {
+            return attendanceRepository.GETSTUDENTNAME();
+        }
+
         public bool UPDATEATTENDANCE(AttendanceDto attendancedto)
         {
             return attendanceRepository.UPDATEATTENDANCE(attendancedto);

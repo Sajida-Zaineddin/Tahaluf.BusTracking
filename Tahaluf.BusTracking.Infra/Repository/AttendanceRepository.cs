@@ -45,6 +45,26 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return result.ToList();
         }
 
+        public List<Attendancestatus> GETATTENDANCESTATUS()
+        {
+
+            IEnumerable<Attendancestatus> result = DbContext.Connection.Query<Attendancestatus>("ATTENDANCE_PACKAGE.GETATTENDANCESTATUS", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Bu> GETBUSNUMBER()
+        {
+
+            IEnumerable<Bu> result = DbContext.Connection.Query<Bu>("ATTENDANCE_PACKAGE.GETBUSNUMBER", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Student> GETSTUDENTNAME()
+        {
+            IEnumerable<Student> result = DbContext.Connection.Query<Student>("ATTENDANCE_PACKAGE.GETSTUDENTNAME", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public bool UPDATEATTENDANCE(AttendanceDto attendancedto)
         {
             var p = new DynamicParameters();
