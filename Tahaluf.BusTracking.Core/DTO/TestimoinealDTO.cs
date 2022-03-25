@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Tahaluf.BusTracking.Core.DTO
 {
-    public class Test
+    public class TestimoinealDTO
     {
 
         public decimal Id { get; set; }

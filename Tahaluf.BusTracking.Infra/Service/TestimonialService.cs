@@ -19,7 +19,7 @@ namespace Tahaluf.BusTracking.Infra.Service
             _testimonialRepository = testimonialRepository;
         }
 
-        public bool CreateTestimonial(Test testimonial)
+        public bool CreateTestimonial(TestimoinealDTO testimonial)
         {
            return _testimonialRepository.CreateTestimonial(testimonial);
         }
@@ -29,12 +29,12 @@ namespace Tahaluf.BusTracking.Infra.Service
             return _testimonialRepository.DeleteTestimonial(id);
         }
 
-        public List<Test> GetAllTestimonials()
+        public List<TestimoinealDTO> GetAllTestimonials()
         {
             return _testimonialRepository.GetAllTestimonials();
         }
 
-        public bool UpdateTestimonial(testUpdateDTO testimonial)
+        public bool UpdateTestimonial(TestimoinealUpdateDTO testimonial)
         {
             return _testimonialRepository.UpdateTestimonial(testimonial);
         }

@@ -24,26 +24,26 @@ namespace Tahaluf.BusTracking.Infra.Repository
             DbContext = _DbContext;
         }
 
-        public List<Test> GetAllTestimonials()
+        public List<TestimoinealDTO> GetAllTestimonials()
         {
-            IEnumerable<Test> result = DbContext.Connection.Query<Test>("gettestDTO", commandType: CommandType.StoredProcedure);
+            IEnumerable<TestimoinealDTO> result = DbContext.Connection.Query<TestimoinealDTO>("gettestDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
-        public bool CreateTestimonial(Test testimonial)
+        public bool CreateTestimonial(TestimoinealDTO testimonial)
         {
             var p = new DynamicParameters();
             p.Add("userName", testimonial.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("photo", testimonial.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("opinion", testimonial.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("testStat", testimonial.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("testStat", "onhold", dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = DbContext.Connection.ExecuteAsync("testcreate", p, commandType: CommandType.StoredProcedure);
 
             return true;
         }
 
-        public bool UpdateTestimonial(testUpdateDTO testimonial)
+        public bool UpdateTestimonial(TestimoinealUpdateDTO testimonial)
         {
             var p = new DynamicParameters();
             

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 
 namespace Tahaluf.BusTracking.Infra.Repository
@@ -50,6 +51,18 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("BUS_PACKAGE.DELETEBUS", p, commandType: CommandType.StoredProcedure);
 
             return true;
+        }
+
+        public List<GetBusDriversDTO> GetBusDrivers() {
+
+            IEnumerable<GetBusDriversDTO> result = DbContext.Connection.Query<GetBusDriversDTO>("getBusDrivers", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+        public List<GetBusTeachersDTO> GetBusTeaachers() {
+            IEnumerable<GetBusTeachersDTO> result = DbContext.Connection.Query<GetBusTeachersDTO>("getBusTeachers", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
         }
     }
 }

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.API.Controllers
@@ -79,6 +80,21 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 return null;
             }
+        }
+
+
+        [HttpGet]
+        [Route("GetAllDrivers")]
+        public List<User> GetAllDrivers()
+        {
+            return _userService.GetAllDrivers();
+        }
+
+        [HttpGet]
+        [Route("GetAllTeachers")]
+        public List<User> GetAllTeachers() { 
+        
+        return _userService.GetAllTeachers();
         }
     }
 }

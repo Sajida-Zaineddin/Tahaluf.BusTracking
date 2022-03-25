@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Tahaluf.BusTracking.Core.DTO
 {
-    public class testUpdateDTO
+    public class TestimoinealUpdateDTO
     {
 
-        public decimal Id { get; set; }
+         public decimal Id { get; set; }
          public string Status { get; set; }
     }
 }
