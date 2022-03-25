@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.API.Controllers
@@ -22,9 +23,9 @@ namespace Tahaluf.BusTracking.API.Controllers
 
 
         [HttpGet]
-        [ProducesResponseType(typeof(List<Route>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<RouteDTO>), StatusCodes.Status200OK)]
         [Route("GetAll")]
-        public List<Route> GETALLROUTE()
+        public List<RouteDTO> GETALLROUTE()
         {
             return routeService.GETALLROUTE();
         }
@@ -32,7 +33,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPost]
         [Route("Create")]
-        public bool CREATEROUTE([FromBody] Route route)
+        public bool CREATEROUTE([FromBody] RouteDTO route)
         {
             return routeService.CREATEROUTE(route);
         }
@@ -47,7 +48,7 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpPut]
         [Route("Update")]
-        public bool UPDATEROUTE([FromBody] Route route)
+        public bool UPDATEROUTE([FromBody] RouteDTO route)
         {
             return routeService.UPDATEROUTE(route);
         }

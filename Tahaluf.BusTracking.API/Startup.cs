@@ -35,6 +35,7 @@ namespace Tahaluf.BusTracking.API
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             services.AddCors(corsOptions =>
             {
                 corsOptions.AddPolicy("x",
@@ -48,6 +49,7 @@ namespace Tahaluf.BusTracking.API
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
                 });
             });
+
 
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
@@ -124,7 +126,11 @@ namespace Tahaluf.BusTracking.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+
             app.UseCors("x");
+
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
