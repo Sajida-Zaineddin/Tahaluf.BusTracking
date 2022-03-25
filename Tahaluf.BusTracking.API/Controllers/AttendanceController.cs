@@ -28,6 +28,26 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return attendanceService.GETALLATTENDANCE();
         }
+        [HttpGet]
+        [Route("GetAttendance")]
+        public List<Attendancestatus> GETATTENDANCESTATUS()
+        {
+            return attendanceService.GETATTENDANCESTATUS();
+        }
+        [HttpGet]
+        [Route("GetStudent")]
+        public List<Student> GETSTUDENTNAME()
+        {
+            return attendanceService.GETSTUDENTNAME();
+        }
+        [HttpGet]
+ 
+        [Route("GetBusNum")]
+        public List<Bu> GETBUSNUMBER()
+        {
+            return attendanceService.GETBUSNUMBER();
+        }
+
 
 
         [HttpPost]
