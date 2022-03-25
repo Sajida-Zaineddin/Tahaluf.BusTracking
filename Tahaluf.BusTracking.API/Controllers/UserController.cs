@@ -23,15 +23,15 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
-        public List<User> GetAllUser()
+        [ProducesResponseType(typeof(List<UserDTO>), StatusCodes.Status200OK)]
+        public List<UserDTO> GetAllUser()
         {
             return _userService.GetAllUser();
         }
 
         [HttpPost]
         [Route("Create")]
-        public bool CreateUser([FromBody] User user)
+        public bool CreateUser([FromBody] UserDTO user)
         {
             return _userService.CreateUser(user);
         }
@@ -39,14 +39,14 @@ namespace Tahaluf.BusTracking.API.Controllers
         [HttpPut]
         [Route("Update")]
 
-        public bool UpdateUser([FromBody] User user)
+        public bool UpdateUser([FromBody] UserDTO user)
         {
             return _userService.UpdateUser(user);
         }
 
         [HttpDelete]
         [Route("Delete/{id}")]
-        public bool DeleteUser(int id)
+        public string DeleteUser(int id)
         {
             return _userService.DeleteUser(id);
         }
@@ -82,6 +82,12 @@ namespace Tahaluf.BusTracking.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetRole")]
+        public List<Role> GetRole()
+        {
+            return _userService.GetRole();
+        }
 
         [HttpGet]
         [Route("GetAllDrivers")]
