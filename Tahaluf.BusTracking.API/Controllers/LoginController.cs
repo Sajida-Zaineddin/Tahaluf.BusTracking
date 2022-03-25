@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
 
 namespace Tahaluf.BusTracking.API.Controllers
@@ -10,7 +12,7 @@ namespace Tahaluf.BusTracking.API.Controllers
     public class LoginController : ControllerBase
     {
 
-        private readonly ILoginService  loginService;
+        private readonly ILoginService loginService;
 
         public LoginController(ILoginService loginService)
         {
@@ -30,6 +32,39 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 return Ok(token);
             }
+        }
+
+
+
+        [HttpGet]
+        [Route("GetAllUsersWithNames")]
+        public List<LoginWithFullNamesDTO> GetAllUsersWithNames()
+        {
+            return loginService.GetAllUsersWithNames();
+        }
+
+
+        [HttpPost]
+        [Route("CreateLoginUser")]
+        public bool CreateLoginUser([FromBody] Login login)
+        {
+
+            return loginService.CreateLoginUser(login);
+        }
+
+
+        [HttpPut]
+        [Route("UpdateLoginUser")]
+        public bool UpdateLoginUser([FromBody] Login login) { 
+        
+            return loginService.UpdateLoginUser(login); 
+        }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public string DeleteLoginUser(int id) { 
+        
+            return loginService.DeleteLoginUser(id);
         }
 
     }
