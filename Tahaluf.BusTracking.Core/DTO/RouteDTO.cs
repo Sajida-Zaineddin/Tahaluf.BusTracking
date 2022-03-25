@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace Tahaluf.BusTracking.Core.Data
+namespace Tahaluf.BusTracking.Core.DTO
 {
-    public partial class Route
+    public class RouteDTO
     {
         public decimal Id { get; set; }
         public string Xstart { get; set; }
@@ -14,7 +13,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public string Ycurrent { get; set; }
         public string Xend { get; set; }
         public string Yend { get; set; }
-        public decimal? Busid { get; set; }
-        public virtual Bu Bus { get; set; }
+        public decimal Busnumber { get; set; }
     }
 }
