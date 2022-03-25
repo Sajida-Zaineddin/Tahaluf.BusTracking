@@ -21,14 +21,14 @@ namespace Tahaluf.BusTracking.Infra.Repository
 
         public List<UserDTO> GetAllUser()
         {
-            IEnumerable<UserDTO> result = DbContext.Connection.Query<UserDTO>("USERS_PACKAGE.GETALLUSERS", commandType: CommandType.StoredProcedure);
+            IEnumerable<UserDTO> result = DbContext.Connection.Query<UserDTO>("USERS_PACKAGE.GETUSERSDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
         public bool CreateUser(UserDTO user)
         {
             var p = new DynamicParameters();
-            p.Add("FULLNAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("FULL_NAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MAIL", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -42,7 +42,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("USERS_ID", user.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("FULLNAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("FULL_NAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("MAIL", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
