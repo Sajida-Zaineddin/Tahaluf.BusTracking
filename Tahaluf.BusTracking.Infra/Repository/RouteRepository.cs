@@ -18,7 +18,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             DbContext = _DbContext;
         }
-        public bool CREATEROUTE(RouteDTO route)
+        public bool CREATEROUTE(Route route)
         {
             var p = new DynamicParameters();
             p.Add("X_START", route.Xstart, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -27,7 +27,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("Y_CURRENT", route.Ycurrent, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("X_END", route.Xend, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Y_END", route.Yend, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("BUS_NUM", route.Busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("BUS_ID", route.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("ROUTE_PACKAGE.CREATEROUTE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -40,13 +40,13 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return "Succesfully deleted";
         }
 
-        public List<RouteDTO> GETALLROUTE()
+        public List<Route> GETALLROUTE()
         {
-            IEnumerable<RouteDTO> result = DbContext.Connection.Query<RouteDTO>("ROUTE_PACKAGE.GETALLROUTE", commandType: CommandType.StoredProcedure);
+            IEnumerable<Route> result = DbContext.Connection.Query<Route>("ROUTE_PACKAGE.GETALLROUTE", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
-        public bool UPDATEROUTE(RouteDTO route)
+        public bool UPDATEROUTE(Route route)
         {
             var p = new DynamicParameters();
             p.Add("ROUTEID", route.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -56,7 +56,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("Y_CURRENT", route.Ycurrent, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("X_END", route.Xend, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Y_END", route.Yend, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("BUS_NUM", route.Busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("BUS_ID", route.Busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("ROUTE_PACKAGE.UPDATEROUTE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
