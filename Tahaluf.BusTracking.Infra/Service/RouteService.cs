@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
 using Tahaluf.BusTracking.Core.Service;
 using Tahaluf.BusTracking.Infra.Repository;
@@ -17,7 +18,7 @@ namespace Tahaluf.BusTracking.Infra.Service
 
         }
 
-        public bool CREATEROUTE(Route route)
+        public bool CREATEROUTE(RouteDTO route)
         {
             return routeRepository.CREATEROUTE(route);
         }
@@ -28,13 +29,13 @@ namespace Tahaluf.BusTracking.Infra.Service
             return routeRepository.DELETEROUTE(id);
         }
 
-        public List<Route> GETALLROUTE()
+        public List<RouteDTO> GETALLROUTE()
         {
 
             return routeRepository.GETALLROUTE();
         }
 
-        public bool UPDATEROUTE(Route route)
+        public bool UPDATEROUTE(RouteDTO route)
         {
 
             return routeRepository.UPDATEROUTE(route);

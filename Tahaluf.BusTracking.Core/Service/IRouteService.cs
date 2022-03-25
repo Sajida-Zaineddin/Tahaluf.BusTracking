@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using Tahaluf.BusTracking.Core.Data;
+using Tahaluf.BusTracking.Core.DTO;
 
 namespace Tahaluf.BusTracking.Core.Service
 {
     public interface IRouteService
     {
-        List<Route> GETALLROUTE();
+        List<RouteDTO> GETALLROUTE();
 
-        bool CREATEROUTE(Route route);
+        bool CREATEROUTE(RouteDTO route);
 
-        bool UPDATEROUTE(Route route);
+        bool UPDATEROUTE(RouteDTO route);
 
         string DELETEROUTE(int id);
     }
