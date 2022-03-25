@@ -18,7 +18,7 @@ namespace Tahaluf.BusTracking.Infra.Service
 
         }
 
-        public bool CREATEROUTE(RouteDTO route)
+        public bool CREATEROUTE(Route route)
         {
             return routeRepository.CREATEROUTE(route);
         }
@@ -29,13 +29,13 @@ namespace Tahaluf.BusTracking.Infra.Service
             return routeRepository.DELETEROUTE(id);
         }
 
-        public List<RouteDTO> GETALLROUTE()
+        public List<Route> GETALLROUTE()
         {
 
             return routeRepository.GETALLROUTE();
         }
 
-        public bool UPDATEROUTE(RouteDTO route)
+        public bool UPDATEROUTE(Route route)
         {
 
             return routeRepository.UPDATEROUTE(route);

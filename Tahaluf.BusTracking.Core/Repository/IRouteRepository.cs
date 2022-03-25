@@ -8,11 +8,11 @@ namespace Tahaluf.BusTracking.Core.Repository
 {
  public   interface IRouteRepository
     {
-        List<RouteDTO> GETALLROUTE();
+        List<Route> GETALLROUTE();
 
-        bool CREATEROUTE(RouteDTO route);
+        bool CREATEROUTE(Route route);
 
-        bool UPDATEROUTE(RouteDTO route);
+        bool UPDATEROUTE(Route route);
 
         string DELETEROUTE(int id);
     }
