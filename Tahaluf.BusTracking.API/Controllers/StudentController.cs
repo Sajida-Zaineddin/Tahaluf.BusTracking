@@ -23,9 +23,8 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-       // [ProducesResponseType(typeof(List<Student>), StatusCodes.Status200OK)]
-        // anyone with token or [Authorize(Role = "Teacher, Student")] [Authorize] 
         public List<StudentDto> GetAllStudent()
+        
         {
             return _studentService.GetAllStudent();
         }
@@ -44,7 +43,7 @@ namespace Tahaluf.BusTracking.API.Controllers
             return _studentService.GETPARENTNAME();
 
         }
-  
+
         [HttpGet]
         [Route("GetBusNum")]
         public List<Bu> GETBUSNUMBER()
@@ -52,8 +51,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             return _studentService.GETBUSNUMBER();
 
         }
-
-
 
         [HttpPost]
         [Route("Create")]
