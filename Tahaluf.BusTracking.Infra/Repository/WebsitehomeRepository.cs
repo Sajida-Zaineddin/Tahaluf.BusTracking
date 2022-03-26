@@ -31,7 +31,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
             par.Add("@HTEXT", websitehome.Text, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@HWEBSITEID", websitehome.Websiteid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            var result = dbContext.Connection.ExecuteAsync("WEBSITEHOME_PACKAGE.CREATEWEBSITEFOOTER", par, commandType: CommandType.StoredProcedure);
+            var result = dbContext.Connection.ExecuteAsync("WEBSITEHOME_PACKAGE.CREATEWEBSITEHOME", par, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool Updatewebsitehome(Websitehome websitehome)
@@ -49,7 +49,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         public bool Deletewebsitehome(int Id)
         {
             var par = new DynamicParameters();
-            par.Add("@FOOTERID", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            par.Add("@HOMEID", Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("WEBSITEHOME_PACKAGE.DELETEWEBSITEHOME", par, commandType: CommandType.StoredProcedure);
             return true;
         }

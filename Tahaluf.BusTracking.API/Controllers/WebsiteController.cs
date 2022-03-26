@@ -19,7 +19,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         }
 
 
-
         [HttpGet]
         [Route("GetAll")]
         [ProducesResponseType(typeof(List<Website>), StatusCodes.Status200OK)]
@@ -27,7 +26,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return websiteService.GetAllWebsite();
         }
-
 
         [HttpPost]
         [Route("Create")]
@@ -38,7 +36,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             return websiteService.CreateWebsite(website);
         }
 
-
         [HttpPut]
         [Route("Update")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
@@ -48,12 +45,11 @@ namespace Tahaluf.BusTracking.API.Controllers
             return websiteService.UpdateWebsite(website);
         }
 
-
         [HttpDelete]
         [Route("Delete/{id}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(bool), StatusCodes.Status400BadRequest)]
-        public bool DeleteWebsite([FromBody] int Id)
+        public bool DeleteWebsite(int Id)
         {
             return websiteService.DeleteWebsite(Id);
         }
