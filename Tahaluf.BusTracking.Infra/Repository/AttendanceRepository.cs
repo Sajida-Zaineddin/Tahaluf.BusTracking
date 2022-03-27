@@ -21,7 +21,7 @@ namespace Tahaluf.BusTracking.Infra.Repository
         public bool CREATEATTENDANCE(AttendanceDto attendancedto)
         {
             var p = new DynamicParameters();
-            p.Add("DATE_OF_ATTENDANCE", attendancedto.Dateofattendance, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("DATE_OF_ATTENDANCE", DateTime.Now , dbType: DbType.DateTime, direction: ParameterDirection.Input);
             p.Add("STATUS", attendancedto.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("NAME", attendancedto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("BUSNUMBER", attendancedto.Busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
