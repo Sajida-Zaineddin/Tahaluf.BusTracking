@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Common;
 using Tahaluf.BusTracking.Core.Data;
 using Tahaluf.BusTracking.Core.DTO;
@@ -63,6 +64,34 @@ namespace Tahaluf.BusTracking.Infra.Repository
             IEnumerable<GetBusTeachersDTO> result = DbContext.Connection.Query<GetBusTeachersDTO>("getBusTeachers", commandType: CommandType.StoredProcedure);
             return result.ToList();
 
+        }
+       public async  Task<List<Bu>> GETSTUDENTLIST()
+        {
+               var result = await DbContext.Connection.QueryAsync<Bu, Student, Bu>
+            ("BUS_PACKAGE.GETSTUDENTLIST", (bus, student) =>
+            {
+                bus.Students = bus.Students ?? new List<Student>();
+                bus.Students.Add(student);
+                return bus;
+            },
+            splitOn: "Id",
+            param: null,
+            commandType: CommandType.StoredProcedure
+            );
+
+
+            var FinalResult = result.AsList<Bu>().GroupBy(p => p.Id).Select(g =>
+            {
+                Bu bus = g.First();
+                bus.Students = g.Where(g => g.Students.Any() && g.Students.Count() > 0).Select(p => p.Students.Single()).GroupBy(student => student.Id).Select(student => new Student
+                {
+                Id = student.First().Id,
+                Name = student.First().Name
+                }).ToList();
+                return bus;
+            }).ToList();
+
+            return FinalResult;
         }
     }
 }

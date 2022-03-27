@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Data;
 using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Repository;
@@ -43,6 +44,10 @@ namespace Tahaluf.BusTracking.Infra.Service
         public List<GetBusTeachersDTO> GetBusTeaachers()
         {
             return busRepository.GetBusTeaachers();
+        }
+        public  Task<List<Bu>> GETSTUDENTLIST()
+        {
+            return busRepository.GETSTUDENTLIST();
         }
     }
 }
