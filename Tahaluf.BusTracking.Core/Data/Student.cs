@@ -11,12 +11,12 @@ namespace Tahaluf.BusTracking.Core.Data
         public decimal Id { get; set; }
         public string Name { get; set; }
   
-        public string Xhome { get; set; }
-        public string Yhome { get; set; }
-        public string Grade { get; set; }
-        public decimal? Roundid { get; set; }
-        public decimal? Parentid { get; set; }
-        public decimal? Busid { get; set; }
+        public string xhome { get; set; }
+        public string yhome { get; set; }
+        public string grade { get; set; }
+        public decimal? roundid { get; set; }
+        public decimal? parentid { get; set; }
+        public decimal? busid { get; set; }
 
         public virtual Bu Bus { get; set; }
         public virtual User Parent { get; set; }
