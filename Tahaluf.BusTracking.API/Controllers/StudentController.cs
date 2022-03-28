@@ -72,5 +72,14 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return _studentService.DeleteStudent(id);
         }
+
+        [HttpPost]
+        [Route("SearchStudent")]
+        public List<Student> SEARCHSTUDENT([FromBody] StudentDto studentdto)
+        {
+            return _studentService.SEARCHSTUDENT(studentdto);
+
+        }
+
     }
 }
