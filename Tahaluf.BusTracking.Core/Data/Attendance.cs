@@ -7,11 +7,11 @@ namespace Tahaluf.BusTracking.Core.Data
 {
     public partial class Attendance
     {
-        public decimal Id { get; set; }
-        public DateTime? Dateofattendance { get; set; }
-        public decimal? Studentid { get; set; }
-        public decimal? Busid { get; set; }
-        public decimal? Attendancestatus { get; set; }
+        public decimal id { get; set; }
+        public DateTime? dateofattendance { get; set; }
+        public decimal? studentid { get; set; }
+        public decimal? busid { get; set; }
+        public decimal? attendancestatus { get; set; }
 
         public virtual Attendancestatus AttendancestatusNavigation { get; set; }
         public virtual Bu Bus { get; set; }
