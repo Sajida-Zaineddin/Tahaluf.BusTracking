@@ -46,5 +46,10 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return studentRepository.GETBUSNUMBER();
         }
+       public List<Student> SEARCHSTUDENT(StudentDto studentdto)
+        {
+            return studentRepository.SEARCHSTUDENT(studentdto);
+        }
+
     }
 }

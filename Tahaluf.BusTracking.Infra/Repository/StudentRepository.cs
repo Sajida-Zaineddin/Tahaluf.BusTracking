@@ -82,6 +82,14 @@ namespace Tahaluf.BusTracking.Infra.Repository
             IEnumerable<Bu> result = DbContext.Connection.Query<Bu>("STUDENT_PACKAGE.GETBUSNUMBER", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public List<Student> SEARCHSTUDENT(StudentDto studentdto)
+        {
+            var p = new DynamicParameters();
+            p.Add("SNAME", studentdto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = DbContext.Connection.Query<Student>("STUDENT_PACKAGE.SEARCHSTUDENT", p, commandType: CommandType.StoredProcedure);
+            return result.ToList(); ;
+
+        }
 
     }
 }
