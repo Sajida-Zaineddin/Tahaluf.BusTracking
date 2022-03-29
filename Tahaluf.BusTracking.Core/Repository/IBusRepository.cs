@@ -18,5 +18,11 @@ namespace Tahaluf.BusTracking.Core.Repository
         List<GetBusTeachersDTO> GetBusTeaachers();
         //Task<List<Bu>> GETSTUDENTLIST();
         List<StudentDto> GETSTUDENTLIST(StudentDto student);
+
+        Bu GetBusInfoByUsername(string name);
+
+
+        List<Student> GetBusStudents(int busid);
+        List<Route> GetRouteByBus(int busid);
     }
 }

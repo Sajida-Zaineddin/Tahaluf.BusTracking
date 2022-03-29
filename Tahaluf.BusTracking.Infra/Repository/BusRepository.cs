@@ -54,7 +54,8 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return true;
         }
 
-        public List<GetBusDriversDTO> GetBusDrivers() {
+        public List<GetBusDriversDTO> GetBusDrivers()
+        {
 
             IEnumerable<GetBusDriversDTO> result = DbContext.Connection.Query<GetBusDriversDTO>("getBusDrivers", commandType: CommandType.StoredProcedure);
             return result.ToList();
@@ -105,6 +106,35 @@ namespace Tahaluf.BusTracking.Infra.Repository
                 IEnumerable<StudentDto> result = DbContext.Connection.Query<StudentDto>("BUS_PACKAGE.GETSTUDENTLIST", p, commandType: CommandType.StoredProcedure);
                 return result.ToList();
             }
+        }
+
+        public Bu GetBusInfoByUsername(string name)
+        {
+
+            var p = new DynamicParameters();
+            p.Add("DRIVERNAME", name, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Bu> result = DbContext.Connection.Query<Bu>("GETBUSINFOBYUSERNAME", p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+
+        }
+
+        public List<Student> GetBusStudents(int busid)
+        {
+            var p = new DynamicParameters();
+            p.Add("busnum", busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Student> result = DbContext.Connection.Query<Student>("getstudentsbusbybusid", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
+
+        public List<Route> GetRouteByBus(int busid)
+        {
+            var p = new DynamicParameters();
+            p.Add("busnum", busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Route> result = DbContext.Connection.Query<Route>("GETROUTESBYBUSID", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
         }
     }
 

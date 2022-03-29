@@ -55,5 +55,22 @@ namespace Tahaluf.BusTracking.Infra.Service
             return busRepository.GETSTUDENTLIST(student);
         }
 
+
+        public Bu GetBusInfoByUsername(string name)
+        {
+            return busRepository.GetBusInfoByUsername(name);
+        }
+
+
+        public List<Student> GetBusStudents(int busid)
+        {
+
+            return busRepository.GetBusStudents(busid);
+        }
+
+        public List<Route> GetRouteByBus(int busid) { 
+        
+            return busRepository.GetRouteByBus(busid);  
+        }
     }
 }
