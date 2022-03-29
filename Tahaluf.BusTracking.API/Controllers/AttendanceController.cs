@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Tahaluf.BusTracking.Core.Data;
 using Tahaluf.BusTracking.Core.DTO;
 using Tahaluf.BusTracking.Core.Service;
+
 
 namespace Tahaluf.BusTracking.API.Controllers
 {
@@ -70,6 +74,42 @@ namespace Tahaluf.BusTracking.API.Controllers
         public bool UPDATEATTENDANCE([FromBody] AttendanceDto attendancedto)
         {
             return attendanceService.UPDATEATTENDANCE(attendancedto);
+        }
+
+        [HttpPost]
+        [Route("SendEmail")]
+        public bool SendEmail(Email email)
+        {
+            
+
+            MimeMessage message = new MimeMessage();
+
+            MailboxAddress from = new MailboxAddress("school Mail", email.EmailFrom);
+            message.From.Add(from);
+
+            MailboxAddress mailTo = new MailboxAddress("User", "" + email.EmailTo + "");
+            message.To.Add(mailTo);
+
+            message.Subject = "Bus Tracking";
+
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = "<h4>Dear Parents</h4>" +
+                "we would like to inform you the" +
+                "<p style=\"color:Red\">arrival</p>"+
+                "of your child" 
+               ;
+          
+            message.Body = bodyBuilder.ToMessageBody();
+
+            using (var clinte = new SmtpClient())//(Simple Mail Transfer Protocol).
+            {
+
+                clinte.Connect("smtp.gmail.com", 587, false);
+                clinte.Authenticate(email.EmailFrom, email.Password);
+                clinte.Send(message);
+                clinte.Disconnect(true);
+            }
+            return true;
         }
     }
 }
