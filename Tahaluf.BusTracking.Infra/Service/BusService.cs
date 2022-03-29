@@ -45,9 +45,15 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return busRepository.GetBusTeaachers();
         }
-        public  Task<List<Bu>> GETSTUDENTLIST()
+        //public  Task<List<Bu>> GETSTUDENTLIST()
+        //{
+        //    return busRepository.GETSTUDENTLIST();
+        //}
+
+        public List<StudentDto> GETSTUDENTLIST(StudentDto student)
         {
-            return busRepository.GETSTUDENTLIST();
+            return busRepository.GETSTUDENTLIST(student);
         }
+
     }
 }

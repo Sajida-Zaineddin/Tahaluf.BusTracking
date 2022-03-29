@@ -60,38 +60,52 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return result.ToList();
 
         }
-        public List<GetBusTeachersDTO> GetBusTeaachers() {
+        public List<GetBusTeachersDTO> GetBusTeaachers()
+        {
             IEnumerable<GetBusTeachersDTO> result = DbContext.Connection.Query<GetBusTeachersDTO>("getBusTeachers", commandType: CommandType.StoredProcedure);
             return result.ToList();
-
         }
-       public async  Task<List<Bu>> GETSTUDENTLIST()
-        {
-               var result = await DbContext.Connection.QueryAsync<Bu, Student, Bu>
-            ("BUS_PACKAGE.GETSTUDENTLIST", (bus, student) =>
+
+            // }
+            //public async  Task<List<Bu>> GETSTUDENTLIST()
+            // {
+            //        var result = await DbContext.Connection.QueryAsync<Bu, Student, Bu>
+            //     ("BUS_PACKAGE.GETSTUDENTLIST", (bus, student) =>
+            //     {
+            //         bus.Students = bus.Students ?? new List<Student>();
+            //         bus.Students.Add(student);
+            //         return bus;
+            //     },
+            //     splitOn: "Id",
+            //     param: null,
+            //     commandType: CommandType.StoredProcedure
+            //     );
+
+
+            //     var FinalResult = result.AsList<Bu>().GroupBy(p => p.Id).Select(g =>
+            //     {
+            //         Bu bus = g.First();
+            //         bus.Students = g.Where(g => g.Students.Any() && g.Students.Count() > 0).Select(p => p.Students.Single()).GroupBy(student => student.Id).Select(student => new Student
+            //         {
+            //         Id = student.First().Id,
+            //         Name = student.First().Name
+            //         }).ToList();
+            //         return bus;
+            //     }).ToList();
+
+            //     return FinalResult;
+            // }
+
+            public List<StudentDto> GETSTUDENTLIST(StudentDto student)
             {
-                bus.Students = bus.Students ?? new List<Student>();
-                bus.Students.Add(student);
-                return bus;
-            },
-            splitOn: "Id",
-            param: null,
-            commandType: CommandType.StoredProcedure
-            );
-
-
-            var FinalResult = result.AsList<Bu>().GroupBy(p => p.Id).Select(g =>
-            {
-                Bu bus = g.First();
-                bus.Students = g.Where(g => g.Students.Any() && g.Students.Count() > 0).Select(p => p.Students.Single()).GroupBy(student => student.Id).Select(student => new Student
-                {
-                Id = student.First().Id,
-                Name = student.First().Name
-                }).ToList();
-                return bus;
-            }).ToList();
-
-            return FinalResult;
+                var p = new DynamicParameters();
+                p.Add("@BUS_NUMBER", student.busnumber, dbType: DbType.Int32);
+                p.Add("@R_STATUS", student.Status, dbType: DbType.String);
+    
+                IEnumerable<StudentDto> result = DbContext.Connection.Query<StudentDto>("BUS_PACKAGE.GETSTUDENTLIST", p, commandType: CommandType.StoredProcedure);
+                return result.ToList();
+            }
         }
     }
-}
+
+
