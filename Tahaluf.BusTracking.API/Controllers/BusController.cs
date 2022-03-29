@@ -53,15 +53,61 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetBusDrivers")]
-        public List<GetBusDriversDTO> GetBusDrivers() { 
-         return _busService.GetBusDrivers();
+        public List<GetBusDriversDTO> GetBusDrivers()
+        {
+            return _busService.GetBusDrivers();
         }
 
         [HttpGet]
         [Route("GetBusTeachers")]
-        public List<GetBusTeachersDTO> GetBusTeaachers() { 
-        
+        public List<GetBusTeachersDTO> GetBusTeaachers()
+        {
+
             return _busService.GetBusTeaachers();
         }
+
+        [HttpGet]
+        [Route("GetBusInfoByUsername/{name}")]
+        public Bu GetBusInfoByUsername(string name)
+        {
+            return _busService.GetBusInfoByUsername(name);
+        }
+
+
+
+        [HttpGet]
+        [Route("GetBusStudents/{busid}")]
+
+        public List<Student> GetBusStudents(int busid)
+        {
+            return _busService.GetBusStudents(busid);
+        }
+
+        [HttpGet]
+        [Route("GetRouteByBus/{busid}")]
+        public List<Route> GetRouteByBus(int busid)
+        {
+            return _busService.GetRouteByBus(busid);
+        }
+
+
+        [HttpGet]
+        [Route("GetStudentsInfoByUsername/{name}")]
+        public List<Student> GetStudentsInfoByUsername(string name)
+        {
+            return _busService.GetBusStudents((int)_busService.GetBusInfoByUsername(name).Id);
+        }
+
+
+        [HttpGet]
+        [Route("GetRoutesInfoByUsername/{name}")]
+        public List<Route> GetRoutesInfoByUsername(string name)
+        {
+            return _busService.GetRouteByBus((int)_busService.GetBusInfoByUsername(name).Id);
+        }
+
+
+
+
     }
 }

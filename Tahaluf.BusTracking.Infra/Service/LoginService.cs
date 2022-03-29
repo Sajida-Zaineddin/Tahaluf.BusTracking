@@ -45,7 +45,9 @@ namespace Tahaluf.BusTracking.Infra.Service
 
                         new Claim(ClaimTypes.Name, result.Username),
 
-                         new Claim(ClaimTypes.Role ,result.Rolename)
+                         new Claim(ClaimTypes.Role ,result.Rolename),
+
+                     
                     }),
 
                     Expires = DateTime.UtcNow.AddHours(1),

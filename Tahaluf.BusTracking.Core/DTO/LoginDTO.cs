@@ -6,6 +6,7 @@ namespace Tahaluf.BusTracking.Core.DTO
 {
     public class LoginDTO
     {
+      
         public string Username { get; set; }
 
         public string Rolename { get; set; }
