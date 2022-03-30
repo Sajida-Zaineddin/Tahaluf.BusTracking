@@ -16,5 +16,9 @@ namespace Tahaluf.BusTracking.Core.Service
         List<User> GETPARENTNAME();
         List<Bu> GETBUSNUMBER();
         List<Student> SEARCHSTUDENT(StudentDto studentdto);
+
+        string UpdateAllStudentsBusStatus();
+
+        bool UPDATESTUDENTBUSSTATUS(string x);
     }
 }

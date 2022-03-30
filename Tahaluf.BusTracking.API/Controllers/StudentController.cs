@@ -81,5 +81,21 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         }
 
+
+        [HttpPut]
+        [Route("UpdateAllStudentsBusStatus")]
+        public string UpdateAllStudentsBusStatus()
+        {
+            return _studentService.UpdateAllStudentsBusStatus();
+        }
+
+
+
+        [HttpGet]
+        [Route("UPDATESTUDENTBUSSTATUS/{x}")]
+        public bool UPDATESTUDENTBUSSTATUS(string x)
+        {
+            return _studentService.UPDATESTUDENTBUSSTATUS(x);
+        }
     }
 }

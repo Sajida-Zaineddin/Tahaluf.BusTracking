@@ -91,5 +91,21 @@ namespace Tahaluf.BusTracking.Infra.Repository
 
         }
 
+        public string UpdateAllStudentsBusStatus() {
+
+            DbContext.Connection.ExecuteAsync("UpdateAllStudentsBusStatus", commandType: CommandType.StoredProcedure);
+            
+            return "ok";
+        }
+
+        public bool UPDATESTUDENTBUSSTATUS(string x)
+        {
+            var p = new DynamicParameters();
+            p.Add("LATHOME", x, dbType: DbType.String, direction: ParameterDirection.Input);
+            DbContext.Connection.ExecuteAsync("UPDATESTUDENTBUSSTATUS", p,commandType: CommandType.StoredProcedure);
+
+            return true;
+        }
+
     }
 }

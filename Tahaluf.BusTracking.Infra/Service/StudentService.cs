@@ -51,5 +51,15 @@ namespace Tahaluf.BusTracking.Infra.Service
             return studentRepository.SEARCHSTUDENT(studentdto);
         }
 
+        
+        public string UpdateAllStudentsBusStatus() { 
+        
+            return studentRepository.UpdateAllStudentsBusStatus();
+        }
+
+        public bool UPDATESTUDENTBUSSTATUS(string x) {
+
+            return studentRepository.UPDATESTUDENTBUSSTATUS(x);
+        }
     }
 }

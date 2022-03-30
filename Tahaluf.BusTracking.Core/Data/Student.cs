@@ -18,6 +18,8 @@ namespace Tahaluf.BusTracking.Core.Data
         public decimal? parentid { get; set; }
         public decimal? busid { get; set; }
 
+        public string inbusstatus { get; set; }
+
         public virtual Bu Bus { get; set; }
         public virtual User Parent { get; set; }
         public virtual Roundstatus Round { get; set; }
