@@ -60,5 +60,19 @@ namespace Tahaluf.BusTracking.API.Controllers
 
             return routeService.SELECTFROMROUTEBYUSERNAME(email);
         }
+
+        [HttpPost]
+        [Route("SETCURRENTBUSLOCATION")]               
+        public bool SETCURRENTBUSLOCATION([FromBody] SetCurrentBusLocationDTO setCurrentBusLocationDTO)
+        { 
+        return routeService.SETCURRENTBUSLOCATION(setCurrentBusLocationDTO);
+        }
+
+        [HttpPost]
+        [Route("setCurrentBusLocationAfterEnd")]
+        public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO) {
+
+            return routeService.setCurrentBusLocationAfterEnd(setCurrentBusLocationDTO);
+        }
     }
 }

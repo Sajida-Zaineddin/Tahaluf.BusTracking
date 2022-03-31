@@ -69,5 +69,27 @@ namespace Tahaluf.BusTracking.Infra.Repository
             IEnumerable<Route> result = DbContext.Connection.Query<Route>("SELECTFROMROUTEBYUSERNAME",p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
+
+
+        public bool SETCURRENTBUSLOCATION(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
+        {
+            var p = new DynamicParameters();           
+            p.Add("LATX", setCurrentBusLocationDTO.Xcurrent, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("LONGY", setCurrentBusLocationDTO.Ycurrent, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("EMAIL", setCurrentBusLocationDTO.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+           
+            var result = DbContext.Connection.ExecuteAsync("SETCURRENTBUSLOCATION", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
+        {
+            var p = new DynamicParameters();
+            
+            p.Add("email", setCurrentBusLocationDTO.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = DbContext.Connection.ExecuteAsync("setCurrentBusLocationAfterEnd", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

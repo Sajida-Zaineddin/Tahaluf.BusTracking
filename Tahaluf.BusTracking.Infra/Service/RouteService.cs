@@ -41,9 +41,19 @@ namespace Tahaluf.BusTracking.Infra.Service
             return routeRepository.UPDATEROUTE(route);
         }
 
-      public  Route SELECTFROMROUTEBYUSERNAME(string email) {
+        public Route SELECTFROMROUTEBYUSERNAME(string email)
+        {
 
             return routeRepository.SELECTFROMROUTEBYUSERNAME(email);
+        }
+        public bool SETCURRENTBUSLOCATION(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
+        {
+
+            return routeRepository.SETCURRENTBUSLOCATION(setCurrentBusLocationDTO);
+        }
+        public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO) {
+
+            return routeRepository.setCurrentBusLocationAfterEnd(setCurrentBusLocationDTO);
         }
     }
 }

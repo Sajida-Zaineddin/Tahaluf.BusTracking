@@ -17,5 +17,9 @@ namespace Tahaluf.BusTracking.Core.Repository
         string DELETEROUTE(int id);
 
         Route SELECTFROMROUTEBYUSERNAME(string email);
+
+        bool SETCURRENTBUSLOCATION(SetCurrentBusLocationDTO setCurrentBusLocationDTO);
+
+        bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO);
     }
 }

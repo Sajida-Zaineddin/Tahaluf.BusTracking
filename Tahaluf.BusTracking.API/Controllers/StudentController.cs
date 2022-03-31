@@ -82,7 +82,7 @@ namespace Tahaluf.BusTracking.API.Controllers
         }
 
 
-        [HttpPut]
+        [HttpGet]
         [Route("UpdateAllStudentsBusStatus")]
         public string UpdateAllStudentsBusStatus()
         {
