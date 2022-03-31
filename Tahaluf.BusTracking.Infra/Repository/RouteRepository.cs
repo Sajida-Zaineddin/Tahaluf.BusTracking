@@ -60,5 +60,14 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("ROUTE_PACKAGE.UPDATEROUTE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+      
+        public Route SELECTFROMROUTEBYUSERNAME(string email)
+        {
+            var p = new DynamicParameters();
+            p.Add("EMAIL", email, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Route> result = DbContext.Connection.Query<Route>("SELECTFROMROUTEBYUSERNAME",p, commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
     }
 }

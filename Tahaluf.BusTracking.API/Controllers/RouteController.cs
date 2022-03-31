@@ -53,5 +53,12 @@ namespace Tahaluf.BusTracking.API.Controllers
             return routeService.UPDATEROUTE(route);
         }
 
+        [HttpGet]
+        [Route("SELECTFROMROUTEBYUSERNAME/{email}")]
+        public Route SELECTFROMROUTEBYUSERNAME(string email)
+        {
+
+            return routeService.SELECTFROMROUTEBYUSERNAME(email);
+        }
     }
 }

@@ -15,5 +15,8 @@ namespace Tahaluf.BusTracking.Core.Service
         bool UPDATEROUTE(Route route);
 
         string DELETEROUTE(int id);
+
+      
+        Route SELECTFROMROUTEBYUSERNAME(string email);
     }
 }
