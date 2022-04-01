@@ -61,5 +61,10 @@ namespace Tahaluf.BusTracking.Infra.Service
 
             return studentRepository.UPDATESTUDENTBUSSTATUS(x);
         }
+
+        public List<ParentStudentsDTO> GetParentStudents(Login login) { 
+        
+            return studentRepository.GetParentStudents(login);   
+        }
     }
 }

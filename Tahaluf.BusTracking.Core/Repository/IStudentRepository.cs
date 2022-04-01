@@ -20,6 +20,8 @@ namespace Tahaluf.BusTracking.Core.Repository
         string UpdateAllStudentsBusStatus();
         bool UPDATESTUDENTBUSSTATUS(string x);
 
+        List<ParentStudentsDTO> GetParentStudents(Login login);
+
 
     }
 }

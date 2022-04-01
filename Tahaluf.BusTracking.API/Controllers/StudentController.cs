@@ -24,7 +24,7 @@ namespace Tahaluf.BusTracking.API.Controllers
         [HttpGet]
         [Route("GetAll")]
         public List<StudentDto> GetAllStudent()
-        
+
         {
             return _studentService.GetAllStudent();
         }
@@ -96,6 +96,14 @@ namespace Tahaluf.BusTracking.API.Controllers
         public bool UPDATESTUDENTBUSSTATUS(string x)
         {
             return _studentService.UPDATESTUDENTBUSSTATUS(x);
+        }
+
+        [HttpPost]
+        [Route("GetParentStudents")]
+        public List<ParentStudentsDTO> GetParentStudents([FromBody] Login login)
+
+        {
+            return _studentService.GetParentStudents(login);
         }
     }
 }

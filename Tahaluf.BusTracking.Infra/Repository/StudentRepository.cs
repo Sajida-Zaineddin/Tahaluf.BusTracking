@@ -107,5 +107,15 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return true;
         }
 
+
+
+        public List<ParentStudentsDTO> GetParentStudents(Login login) {
+            var p = new DynamicParameters();
+            p.Add("parentusername", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<ParentStudentsDTO> result = DbContext.Connection.Query<ParentStudentsDTO>("GetParentStudents", p,commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
     }
 }
