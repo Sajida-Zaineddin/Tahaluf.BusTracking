@@ -105,5 +105,13 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return _studentService.GetParentStudents(login);
         }
+
+        [HttpPost]
+        [Route("GetStudentAttendence")]
+        public List<Attendance> GetStudentAttendence([FromBody] Student student) { 
+        
+            return _studentService.GetStudentAttendence(student);
+
+        }
     }
 }

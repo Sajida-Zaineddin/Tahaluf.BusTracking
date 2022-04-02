@@ -23,5 +23,7 @@ namespace Tahaluf.BusTracking.Core.Service
 
 
         List<ParentStudentsDTO> GetParentStudents(Login login);
+
+        List<Attendance> GetStudentAttendence(Student student);
     }
 }

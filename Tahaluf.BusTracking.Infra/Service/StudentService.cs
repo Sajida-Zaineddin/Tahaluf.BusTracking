@@ -15,7 +15,7 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             studentRepository = _studentRepository;
         }
-        public List<StudentDto> GetAllStudent() 
+        public List<StudentDto> GetAllStudent()
         {
             return studentRepository.GetAllStudent();
         }
@@ -46,25 +46,33 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return studentRepository.GETBUSNUMBER();
         }
-       public List<Student> SEARCHSTUDENT(StudentDto studentdto)
+        public List<Student> SEARCHSTUDENT(StudentDto studentdto)
         {
             return studentRepository.SEARCHSTUDENT(studentdto);
         }
 
-        
-        public string UpdateAllStudentsBusStatus() { 
-        
+
+        public string UpdateAllStudentsBusStatus()
+        {
+
             return studentRepository.UpdateAllStudentsBusStatus();
         }
 
-        public bool UPDATESTUDENTBUSSTATUS(string x) {
+        public bool UPDATESTUDENTBUSSTATUS(string x)
+        {
 
             return studentRepository.UPDATESTUDENTBUSSTATUS(x);
         }
 
-        public List<ParentStudentsDTO> GetParentStudents(Login login) { 
-        
-            return studentRepository.GetParentStudents(login);   
+        public List<ParentStudentsDTO> GetParentStudents(Login login)
+        {
+
+            return studentRepository.GetParentStudents(login);
+        }
+
+        public List<Attendance> GetStudentAttendence(Student student)
+        {
+            return studentRepository.GetStudentAttendence(student);
         }
     }
 }

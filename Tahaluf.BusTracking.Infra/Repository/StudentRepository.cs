@@ -117,5 +117,13 @@ namespace Tahaluf.BusTracking.Infra.Repository
 
         }
 
+        public List<Attendance> GetStudentAttendence(Student student) {
+            var p = new DynamicParameters();
+            p.Add("sid", student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Attendance> result = DbContext.Connection.Query<Attendance>("getStudentAttendens", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
     }
 }
