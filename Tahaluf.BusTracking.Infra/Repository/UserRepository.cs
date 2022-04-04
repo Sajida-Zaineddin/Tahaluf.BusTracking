@@ -78,5 +78,28 @@ namespace Tahaluf.BusTracking.Infra.Repository
             IEnumerable<User> result = DbContext.Connection.Query<User>("getallTeachers", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public User GteUserByUusernameFroEdit(Login login)
+        {
+            var p = new DynamicParameters();
+            p.Add("parentusername", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<User> result = DbContext.Connection.Query<User>("GetUserBYUserNnmeFroEdit", p,commandType: CommandType.StoredProcedure);
+            return result.FirstOrDefault();
+        }
+
+        public bool UpdateUserNormal(User user) {
+
+            var p = new DynamicParameters();
+            p.Add("USERS_ID", user.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("FULL_NAME", user.FullName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("MAIL", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ROLE_ID", user.Roleid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = DbContext.Connection.ExecuteAsync("UPDATEUSERSNormal", p, commandType: CommandType.StoredProcedure);
+            return true;
+
+        }
     }
 }

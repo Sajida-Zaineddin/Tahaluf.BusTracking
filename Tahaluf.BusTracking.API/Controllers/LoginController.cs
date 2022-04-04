@@ -67,5 +67,13 @@ namespace Tahaluf.BusTracking.API.Controllers
             return loginService.DeleteLoginUser(id);
         }
 
+
+        [HttpPut]
+        [Route("UpdateLoginUserPassword")]
+        public bool UpdateLoginUserPassword([FromBody]Login login)
+        {
+            return loginService.UpdateLoginUserPassword(login);
+        }
+
     }
 }

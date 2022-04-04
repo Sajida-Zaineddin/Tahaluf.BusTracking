@@ -17,6 +17,7 @@ namespace Tahaluf.BusTracking.Core.Service
         string DeleteLoginUser(int id);
 
         List<LoginWithFullNamesDTO> GetAllUsersWithNames();
+         bool UpdateLoginUserPassword(Login login);
 
     }
 }

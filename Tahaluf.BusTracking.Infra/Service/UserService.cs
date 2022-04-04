@@ -50,5 +50,14 @@ namespace Tahaluf.BusTracking.Infra.Service
         
             return userRepository.GetAllTeachers();
         }
+
+        public User GteUserByUusernameFroEdit(Login login) {
+
+            return userRepository.GteUserByUusernameFroEdit(login);
+        }
+        public bool UpdateUserNormal(User user) { 
+            return userRepository.UpdateUserNormal(user);
+        }
+     
     }
 }

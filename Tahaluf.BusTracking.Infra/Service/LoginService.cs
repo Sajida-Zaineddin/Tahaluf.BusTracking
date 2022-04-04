@@ -85,6 +85,12 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return loginRepository.UpdateLoginUser(login);
         }
+
+        public bool UpdateLoginUserPassword(Login login)
+        {
+
+            return loginRepository.UpdateLoginUserPassword(login);
+        }
     }
 
 

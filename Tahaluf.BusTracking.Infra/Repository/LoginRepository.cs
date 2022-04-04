@@ -73,5 +73,18 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return "deleted successfuly";
         }
 
+
+        public bool UpdateLoginUserPassword(Login login)
+        {
+
+            var p = new DynamicParameters();
+     
+            p.Add("PASS", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("USER_ID", login.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = DbContext.Connection.ExecuteAsync("UPDATELOGINPassword", p, commandType: CommandType.StoredProcedure);
+
+            return true;
+        }
     }
 }
