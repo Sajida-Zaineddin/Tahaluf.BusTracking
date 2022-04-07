@@ -15,7 +15,6 @@ namespace Tahaluf.BusTracking.API.Controllers
     public class AboutusEditorController : ControllerBase
     {
         private readonly IAboutusEditorService aboutusEditorService;
-
         public AboutusEditorController(IAboutusEditorService _aboutusEditorService)
         {
             aboutusEditorService = _aboutusEditorService;
@@ -38,7 +37,6 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpDelete]
         [Route("Delete/{id}")]
-
         public string DELETEABOUTUSEDITOR(int id)
         {
             return aboutusEditorService.DELETEABOUTUSEDITOR(id);
@@ -59,24 +57,19 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 // Image -----> Request ----> Form
                 var file = Request.Form.Files[0];
-
                 // file.FileName
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-
                 // create folder "Images" in Tahaluf.LMS.API
                 var fullPath = Path.Combine("C:\\Users\\eqbal\\Documents\\GitHub\\BusTrackingAngular\\src\\assets\\images", fileName);
-
                 // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
-
                 // DataBase
                 Aboutuseditor aboutuseditor = new Aboutuseditor();
                 aboutuseditor.Imagepath = fileName;
                 return aboutuseditor;
-
             }
             catch (Exception e)
             {

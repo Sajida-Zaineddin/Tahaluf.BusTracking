@@ -10,12 +10,9 @@ namespace Tahaluf.BusTracking.API.Controllers
     [ApiController]
     public class ContactusController : ControllerBase
     {
-
         private readonly IContactusService  contactusService;
-
         public ContactusController(IContactusService contactusService)
         {
-
             this.contactusService = contactusService;
         }
 
@@ -24,7 +21,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         public List<Contactu> GetAllContactus()
         {
             return contactusService.GetContactus();
-
         }
 
         [HttpPost]
@@ -34,10 +30,8 @@ namespace Tahaluf.BusTracking.API.Controllers
             return contactusService.CreateContactus(contactu);
         }
 
-
         [HttpDelete]
         [Route("Delete/{id}")]
-
         public string DeleteContactus(int id)
         {
             return contactusService.DeleteContactus(id);
@@ -49,6 +43,5 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return contactusService.UpdateContactus(contactu);
         }
-
     }
 }

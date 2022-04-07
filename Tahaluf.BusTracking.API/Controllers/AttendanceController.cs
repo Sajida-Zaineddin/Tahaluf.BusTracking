@@ -19,7 +19,6 @@ namespace Tahaluf.BusTracking.API.Controllers
     public class AttendanceController : ControllerBase
     {
         private readonly IAttendanceService attendanceService;
-
         public AttendanceController(IAttendanceService _attendanceService)
         {
             attendanceService = _attendanceService;
@@ -32,27 +31,34 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return attendanceService.GETALLATTENDANCE();
         }
+
         [HttpGet]
         [Route("GetAttendance")]
-        public List<Attendancestatus> GETATTENDANCESTATUS()
+        public List<AttendanceStatus> GETATTENDANCESTATUS()
         {
             return attendanceService.GETATTENDANCESTATUS();
         }
+
+        [HttpPost]
+        [Route("GETTEACHERINFONEW")]
+        public List<GETTEACHERINFONEW> GETTEACHERINFONEW(Login login)
+        {
+            return attendanceService.GETTEACHERINFONEW(login);
+        }
+
         [HttpGet]
         [Route("GetStudent")]
         public List<Student> GETSTUDENTNAME()
         {
             return attendanceService.GETSTUDENTNAME();
         }
+
         [HttpGet]
- 
         [Route("GetBusNum")]
         public List<Bu> GETBUSNUMBER()
         {
             return attendanceService.GETBUSNUMBER();
         }
-
-
 
         [HttpPost]
         [Route("Create")]
@@ -63,7 +69,6 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpDelete]
         [Route("Delete/{id}")]
-
         public string DELETEATTENDANCE(int id)
         {
             return attendanceService.DELETEATTENDANCE(id);
@@ -77,39 +82,58 @@ namespace Tahaluf.BusTracking.API.Controllers
         }
 
         [HttpPost]
-        [Route("SendEmail")]
-        public bool SendEmail(Email email)
+        [Route("SendArrivalEmail")]
+        public bool SendArrivalEmail(Email email)
         {
-            
-
             MimeMessage message = new MimeMessage();
-
-            MailboxAddress from = new MailboxAddress("school Mail", email.EmailFrom);
+            MailboxAddress from = new MailboxAddress("School Mail", "testaseeltahaluf@gmail.com");
             message.From.Add(from);
-
-            MailboxAddress mailTo = new MailboxAddress("User", "" + email.EmailTo + "");
+            MailboxAddress mailTo = new MailboxAddress("User", "" + email.email + "");
             message.To.Add(mailTo);
-
             message.Subject = "Bus Tracking";
-
             BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = "<h4>Dear Parents</h4>" +
-                "we would like to inform you the" +
-                "<p style=\"color:Red\">arrival</p>"+
-                "of your child" 
-               ;
-          
+            bodyBuilder.HtmlBody = "<h4>Dear<that The /h4>" + email.FullName +
+                "We Would Like To Inform You That The" + "<p style=\"color:Red\">ARRIVAL</p>" + "Of Your Child (" + email.name + ").   " + DateTime.Now;
             message.Body = bodyBuilder.ToMessageBody();
-
-            using (var clinte = new SmtpClient())//(Simple Mail Transfer Protocol).
+            using (var clinte = new SmtpClient())
             {
-
                 clinte.Connect("smtp.gmail.com", 587, false);
-                clinte.Authenticate(email.EmailFrom, email.Password);
+                clinte.Authenticate("testaseeltahaluf@gmail.com", "aseel.test1234");
                 clinte.Send(message);
                 clinte.Disconnect(true);
             }
             return true;
+        }
+
+        [HttpPost]
+        [Route("SendAbsentEmail")]
+        public bool SendAbsentEmail(Email email)
+        {
+            MimeMessage message = new MimeMessage();
+            MailboxAddress from = new MailboxAddress("School Mail", "testaseeltahaluf@gmail.com");
+            message.From.Add(from);
+            MailboxAddress mailTo = new MailboxAddress("User", "" + email.email + "");
+            message.To.Add(mailTo);
+            message.Subject = "Bus Tracking";
+            BodyBuilder bodyBuilder = new BodyBuilder();
+            bodyBuilder.HtmlBody = "<h4>Dear</h4>" + email.FullName +
+                "We Would Like To Inform You That The" + "<p style=\"color:Red\">ABSENT</p>" + "Of Your Child (" + email.name + ").   " + DateTime.Now;
+            message.Body = bodyBuilder.ToMessageBody();
+            using (var clinte = new SmtpClient())//(Simple Mail Transfer Protocol).
+            {
+                clinte.Connect("smtp.gmail.com", 587, false);
+                clinte.Authenticate("testaseeltahaluf@gmail.com", "aseel.test1234");
+                clinte.Send(message);
+                clinte.Disconnect(true);
+            }
+            return true;
+        }
+
+        [HttpPost]
+        [Route("GETSTUDENTEMAIL/{StudentId}")]
+        public studentEmail GETSTUDENTEMAIL(int StudentId)
+        {
+            return attendanceService.GETSTUDENTEMAIL(StudentId);
         }
     }
 }

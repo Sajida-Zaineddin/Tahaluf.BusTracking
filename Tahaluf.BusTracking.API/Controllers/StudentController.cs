@@ -24,10 +24,10 @@ namespace Tahaluf.BusTracking.API.Controllers
         [HttpGet]
         [Route("GetAll")]
         public List<StudentDto> GetAllStudent()
-
         {
             return _studentService.GetAllStudent();
         }
+
         [HttpGet]
         [Route("GetRoundStatus")]
         public List<Roundstatus> GETROUNDSTATUS()
@@ -35,13 +35,11 @@ namespace Tahaluf.BusTracking.API.Controllers
             return _studentService.GETROUNDSTATUS();
         }
 
-
         [HttpGet]
         [Route("GetParentName")]
-        public List<User> GETPARENTNAME()
+        public List<getParentName> GETPARENTNAME()
         {
             return _studentService.GETPARENTNAME();
-
         }
 
         [HttpGet]
@@ -49,7 +47,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         public List<Bu> GETBUSNUMBER()
         {
             return _studentService.GETBUSNUMBER();
-
         }
 
         [HttpPost]
@@ -78,9 +75,7 @@ namespace Tahaluf.BusTracking.API.Controllers
         public List<Student> SEARCHSTUDENT([FromBody] StudentDto studentdto)
         {
             return _studentService.SEARCHSTUDENT(studentdto);
-
         }
-
 
         [HttpGet]
         [Route("UpdateAllStudentsBusStatus")]
@@ -88,8 +83,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return _studentService.UpdateAllStudentsBusStatus();
         }
-
-
 
         [HttpGet]
         [Route("UPDATESTUDENTBUSSTATUS/{x}")]
@@ -101,17 +94,22 @@ namespace Tahaluf.BusTracking.API.Controllers
         [HttpPost]
         [Route("GetParentStudents")]
         public List<ParentStudentsDTO> GetParentStudents([FromBody] Login login)
-
         {
             return _studentService.GetParentStudents(login);
         }
 
         [HttpPost]
         [Route("GetStudentAttendence")]
-        public List<Attendance> GetStudentAttendence([FromBody] Student student) { 
-        
+        public List<Attendance> GetStudentAttendence([FromBody] Student student) 
+        { 
             return _studentService.GetStudentAttendence(student);
+        }
 
+        [HttpGet]
+        [Route("GetStudentListByTeacher/{TEACHERNAME}")]
+        public List<GetStudentListByTeacher> GetStudentListByTeacher(string TEACHERNAME)
+        {
+            return _studentService.GetStudentListByTeacher(TEACHERNAME);
         }
     }
 }

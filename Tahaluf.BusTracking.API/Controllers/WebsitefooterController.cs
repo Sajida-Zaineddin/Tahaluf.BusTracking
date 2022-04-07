@@ -15,7 +15,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             websitefooterService = _websitefooterService;
         }
-
         
         [HttpGet]
         [Route("GetAll")]
@@ -24,7 +23,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return websitefooterService.GetAllwebsitefooter();
         }
-
 
         [HttpPost]
         [Route("Create")]
@@ -35,7 +33,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             return websitefooterService.Createwebsitefooter(websitefooter);
         }
 
-
         [HttpPut]
         [Route("Update")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
@@ -45,7 +42,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             return websitefooterService.Updatewebsitefooter(websitefooter);
         }
 
-
         [HttpDelete]
         [Route("Delete/{id}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
@@ -54,6 +50,5 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return websitefooterService.Deletewebsitefooter(Id);
         }
-     
     }
 }

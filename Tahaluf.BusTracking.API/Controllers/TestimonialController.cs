@@ -13,22 +13,17 @@ namespace Tahaluf.BusTracking.API.Controllers
     [ApiController]
     public class TestimonialController : ControllerBase
     {
-
         private readonly ITestimonialService  testimonialService;
-
         public TestimonialController(ITestimonialService testimonialService)
         {
-
             this.testimonialService = testimonialService;
         }
-
 
         [HttpGet]
         [ProducesResponseType(typeof(List<Testimonial>), StatusCodes.Status200OK)]
         public List<TestimoinealDTO> GetAllTestimonial()
         {
             return testimonialService.GetAllTestimonials();
-            
         }
 
         [HttpPost]
@@ -37,7 +32,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return testimonialService.CreateTestimonial(testimonial);
         }
-
 
         [HttpDelete]
         [Route("Delete/{id}")]
@@ -62,24 +56,19 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 // Image -----> Request ----> Form
                 var file = Request.Form.Files[0];
-
                 // file.FileName
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-
                 // create folder "Images" in Tahaluf.LMS.API
                 var fullPath = Path.Combine("C:\\Users\\eqbal\\Documents\\GitHub\\BusTrackingAngular\\src\\assets\\images", fileName);
-
                 // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
-
                 // DataBase
                 Testimonial testimonial = new Testimonial();
                 testimonial.Imagepath = fileName;
                 return testimonial;
-
             }
             catch (Exception e)
             {
@@ -89,8 +78,8 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetTestimonialStatus")]
-        public List<Testimonialstatus> GetTestimonialStatus() { 
-        
+        public List<Testimonialstatus> GetTestimonialStatus()
+        { 
             return testimonialService.GetTestimonialStatus();
         }
     }

@@ -15,12 +15,10 @@ namespace Tahaluf.BusTracking.API.Controllers
     public class RouteController : ControllerBase
     {
         private readonly IRouteService routeService;
-
         public RouteController(IRouteService _routeService)
         {
             routeService = _routeService;
         }
-
 
         [HttpGet]
         [ProducesResponseType(typeof(List<Route>), StatusCodes.Status200OK)]
@@ -29,7 +27,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return routeService.GETALLROUTE();
         }
-
 
         [HttpPost]
         [Route("Create")]
@@ -40,7 +37,6 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpDelete]
         [Route("Delete/{id}")]
-
         public string DELETEROUTE(int id)
         {
             return routeService.DELETEROUTE(id);
@@ -57,7 +53,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         [Route("SELECTFROMROUTEBYUSERNAME/{email}")]
         public Route SELECTFROMROUTEBYUSERNAME(string email)
         {
-
             return routeService.SELECTFROMROUTEBYUSERNAME(email);
         }
 
@@ -65,13 +60,13 @@ namespace Tahaluf.BusTracking.API.Controllers
         [Route("SETCURRENTBUSLOCATION")]               
         public bool SETCURRENTBUSLOCATION([FromBody] SetCurrentBusLocationDTO setCurrentBusLocationDTO)
         { 
-        return routeService.SETCURRENTBUSLOCATION(setCurrentBusLocationDTO);
+             return routeService.SETCURRENTBUSLOCATION(setCurrentBusLocationDTO);
         }
 
         [HttpPost]
         [Route("setCurrentBusLocationAfterEnd")]
-        public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO) {
-
+        public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
+        {
             return routeService.setCurrentBusLocationAfterEnd(setCurrentBusLocationDTO);
         }
     }

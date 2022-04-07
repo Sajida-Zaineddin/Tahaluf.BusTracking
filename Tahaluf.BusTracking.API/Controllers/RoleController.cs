@@ -15,7 +15,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             roleService = _roleService;
         }
-
         
         [HttpGet]
         [Route("GetAll")]
@@ -24,7 +23,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return roleService.GetAllRole();
         }
-
 
         [HttpPost]
         [Route("Create")]
@@ -35,7 +33,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             return roleService.CreateRole(role);
         }
 
-
         [HttpPut]
         [Route("Update")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
@@ -45,7 +42,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             return roleService.UpdateRole(role);
         }
 
-
         [HttpDelete]
         [Route("Delete/{id}")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
@@ -54,6 +50,5 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return roleService.DeleteRole(Id);
         }
-
     }
 }

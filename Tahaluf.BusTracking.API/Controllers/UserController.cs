@@ -59,10 +59,8 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 // Image -----> Request ----> Form
                 var file = Request.Form.Files[0];
-
                 // file.FileName
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-
                 // create folder "Images" in Tahaluf.LMS.API
                 var fullPath = Path.Combine("C:\\Users\\eqbal\\Documents\\GitHub\\BusTrackingAngular\\src\\assets\\images", fileName);
                 // FileStream
@@ -70,7 +68,6 @@ namespace Tahaluf.BusTracking.API.Controllers
                 {
                     file.CopyTo(stream);
                 }
-
                 // DataBase
                 User user = new User();
                 user.Imagepath = fileName;
@@ -104,12 +101,24 @@ namespace Tahaluf.BusTracking.API.Controllers
         }
 
         [HttpPost]
+        [Route("teacherInfo")]
+        public List<User> GETTEACHERINFO(string Uname)
+        {
+            return _userService.GETTEACHERINFO(Uname);
+        }
+        [HttpPost]
+        [Route("teacherId")]
+        public List<teacherBusList> GETTEACHERID(string Uname)
+        {
+            return _userService.GETTEACHERID(Uname);
+        }
+
+        [HttpPost]
         [Route("GteUserByUusernameFroEdit")]
         public User GteUserByUusernameFroEdit([FromBody] Login login)
         {
             return _userService.GteUserByUusernameFroEdit(login);
         }
-
 
         [HttpPut]
         [Route("UpdateNormal")]
@@ -117,6 +126,5 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return _userService.UpdateUserNormal(user);
         }
-
     }
 }

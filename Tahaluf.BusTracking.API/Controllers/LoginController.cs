@@ -11,14 +11,12 @@ namespace Tahaluf.BusTracking.API.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-
         private readonly ILoginService loginService;
-
         public LoginController(ILoginService loginService)
         {
             this.loginService = loginService;
-
         }
+
         [HttpPost]
         [Route("login")]
         public IActionResult Auth([FromBody] Login login)
@@ -34,8 +32,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             }
         }
 
-
-
         [HttpGet]
         [Route("GetAllUsersWithNames")]
         public List<LoginWithFullNamesDTO> GetAllUsersWithNames()
@@ -43,30 +39,26 @@ namespace Tahaluf.BusTracking.API.Controllers
             return loginService.GetAllUsersWithNames();
         }
 
-
         [HttpPost]
         [Route("CreateLoginUser")]
         public bool CreateLoginUser([FromBody] Login login)
         {
-
             return loginService.CreateLoginUser(login);
         }
 
-
         [HttpPut]
         [Route("UpdateLoginUser")]
-        public bool UpdateLoginUser([FromBody] Login login) { 
-        
+        public bool UpdateLoginUser([FromBody] Login login)
+        { 
             return loginService.UpdateLoginUser(login); 
         }
 
         [HttpDelete]
         [Route("Delete/{id}")]
-        public string DeleteLoginUser(int id) { 
-        
+        public string DeleteLoginUser(int id) 
+        { 
             return loginService.DeleteLoginUser(id);
         }
-
 
         [HttpPut]
         [Route("UpdateLoginUserPassword")]
@@ -74,6 +66,5 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return loginService.UpdateLoginUserPassword(login);
         }
-
     }
 }

@@ -18,7 +18,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             websiteService = _websiteService;
         }
 
-
         [HttpGet]
         [Route("GetAll")]
         [ProducesResponseType(typeof(List<Website>), StatusCodes.Status200OK)]

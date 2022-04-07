@@ -16,17 +16,14 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         public AboutusController(IAboutusService aboutusService)
         {
-
             this.aboutusService = aboutusService;
         }
-
 
         [HttpGet]
         [ProducesResponseType(typeof(List<Aboutu>), StatusCodes.Status200OK)]
         public List<Aboutu> GetAboutus()
         {
             return aboutusService.GetAboutus();
-
         }
 
         [HttpPost]
@@ -35,8 +32,6 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return aboutusService.CreateAboutus(aboutu);
         }
-
-            
 
         [HttpPut]
         [Route("UpdateAboutus")]
@@ -47,7 +42,6 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpDelete]
         [Route("Delete/{id}")]
-
         public string DeleteAboutus(int id)
         {
             return aboutusService.DeleteAboutus(id);
@@ -61,24 +55,19 @@ namespace Tahaluf.BusTracking.API.Controllers
             {
                 // Image -----> Request ----> Form
                 var file = Request.Form.Files[0];
-
                 // file.FileName
                 var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-
                 // create folder "Images" in Tahaluf.LMS.API
                 var fullPath = Path.Combine("C:\\Users\\eqbal\\Documents\\GitHub\\BusTrackingAngular\\src\\assets\\images", fileName);
-
                 // FileStream
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
-
                 // DataBase
                 Aboutu  aboutu   = new Aboutu();
                 aboutu.Imagepath = fileName;
                 return aboutu;
-
             }
             catch (Exception e)
             {
@@ -88,9 +77,9 @@ namespace Tahaluf.BusTracking.API.Controllers
 
         [HttpGet]
         [Route("GetById/{id}")]
-        public Aboutu GetById(int id) { 
-        
-        return aboutusService.GetById(id);
+        public Aboutu GetById(int id) 
+        { 
+             return aboutusService.GetById(id);
         }
     }
 }

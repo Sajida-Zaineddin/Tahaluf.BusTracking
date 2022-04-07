@@ -16,7 +16,6 @@ namespace Tahaluf.BusTracking.API.Controllers
     public class BusController : ControllerBase
     {
         private readonly IBusService _busService;
-
         public BusController(IBusService busService)
         {
             _busService = busService;
@@ -62,18 +61,15 @@ namespace Tahaluf.BusTracking.API.Controllers
         [Route("GetBusTeachers")]
         public List<GetBusTeachersDTO> GetBusTeaachers()
         {
-
             return _busService.GetBusTeaachers();
         }
+
         [HttpPost]
         [Route("GetStudentList")]
         public List<StudentDto> GETSTUDENTLIST([FromBody] StudentDto student)
         {
-
             return _busService.GETSTUDENTLIST(student);
         }
-
-
 
         [HttpGet]
         [Route("GetBusInfoByUsername/{name}")]
@@ -82,11 +78,8 @@ namespace Tahaluf.BusTracking.API.Controllers
             return _busService.GetBusInfoByUsername(name);
         }
 
-
-
         [HttpGet]
         [Route("GetBusStudents/{busid}")]
-
         public List<Student> GetBusStudents(int busid)
         {
             return _busService.GetBusStudents(busid);
@@ -99,14 +92,12 @@ namespace Tahaluf.BusTracking.API.Controllers
             return _busService.GetRouteByBus(busid);
         }
 
-
         [HttpGet]
         [Route("GetStudentsInfoByUsername/{name}")]
         public List<Student> GetStudentsInfoByUsername(string name)
         {
             return _busService.GetBusStudents((int)_busService.GetBusInfoByUsername(name).Id);
         }
-
 
         [HttpGet]
         [Route("GetRoutesInfoByUsername/{name}")]
@@ -115,8 +106,11 @@ namespace Tahaluf.BusTracking.API.Controllers
             return _busService.GetRouteByBus((int)_busService.GetBusInfoByUsername(name).Id);
         }
 
-
-
-
+        [HttpGet]
+        [Route("GetStudentList/{BUSNUMBER}")]
+        public List<GetStudentListByTeacher> GETSTUDENTLIST(int busnumber)
+        {
+            return _busService.GETSTUDENTLIST(busnumber);
+        }
     }
 }
