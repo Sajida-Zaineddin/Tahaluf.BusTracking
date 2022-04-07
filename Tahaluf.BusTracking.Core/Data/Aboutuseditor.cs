@@ -12,9 +12,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public string Titel { get; set; }
         public string Text { get; set; }
         public decimal? Aboutid { get; set; }
-
         public virtual Aboutu About { get; set; }
-
-   
     }
 }

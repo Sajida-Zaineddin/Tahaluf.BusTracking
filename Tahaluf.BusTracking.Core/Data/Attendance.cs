@@ -12,7 +12,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public decimal? studentid { get; set; }
         public decimal? busid { get; set; }
         public decimal? attendancestatus { get; set; }
-
         public virtual Attendancestatus AttendancestatusNavigation { get; set; }
         public virtual Bu Bus { get; set; }
         public virtual Student Student { get; set; }

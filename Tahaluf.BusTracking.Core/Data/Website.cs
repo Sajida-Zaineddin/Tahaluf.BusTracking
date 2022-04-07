@@ -12,7 +12,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public string Websitelogo { get; set; }
         public decimal? Contactusid { get; set; }
         public decimal? Aboutusid { get; set; }
-
         public virtual Aboutu Aboutus { get; set; }
         public virtual Contactu Contactus { get; set; }
         public virtual ICollection<Websitefooter> Websitefooters { get; set; }

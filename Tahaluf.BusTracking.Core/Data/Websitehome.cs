@@ -12,7 +12,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public string Titel { get; set; }
         public string Text { get; set; }
         public decimal? Websiteid { get; set; }
-
         public virtual Website Website { get; set; }
     }
 }

@@ -11,7 +11,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public string Username { get; set; }
         public string Password { get; set; }
         public decimal? Userid { get; set; }
-
         public virtual User User { get; set; }
     }
 }

@@ -12,7 +12,6 @@ namespace Tahaluf.BusTracking.Core.Data
         public string Imagepath { get; set; }
         public string Feedback { get; set; }
         public decimal? Statusid { get; set; }
-
         public virtual Testimonialstatus Status { get; set; }
     }
 }
