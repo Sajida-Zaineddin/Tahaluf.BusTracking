@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Tahaluf.BusTracking.Core.DTO
 {
-    public class LoginDTO
+    public class AttendanceStatus
     {
-        public string Username { get; set; }
-        public string Rolename { get; set; }
+        public string Status { get; set; }
     }
 }

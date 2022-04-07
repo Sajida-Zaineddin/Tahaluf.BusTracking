@@ -9,6 +9,5 @@ namespace Tahaluf.BusTracking.Core.DTO
         public decimal? Busnumber { get; set; }
         public decimal? Busteacher { get; set; }
         public string FullName { get; set; }
-
     }
 }
