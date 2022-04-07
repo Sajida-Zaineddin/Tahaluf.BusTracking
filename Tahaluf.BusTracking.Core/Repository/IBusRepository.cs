@@ -15,7 +15,7 @@ namespace Tahaluf.BusTracking.Core.Repository
         bool DeleteBus(int id);
         List<GetBusDriversDTO> GetBusDrivers(); 
         List<GetBusTeachersDTO> GetBusTeaachers();
-        List<StudentDto> GETSTUDENTLIST(StudentDto student);
+        List<GetStudentListByTeacher> GETSTUDENTLIST(int busnumber);
         Bu GetBusInfoByUsername(string name);
         List<Student> GetBusStudents(int busid);
         List<Route> GetRouteByBus(int busid);

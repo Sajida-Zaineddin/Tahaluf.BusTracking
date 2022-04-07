@@ -13,23 +13,19 @@ namespace Tahaluf.BusTracking.Infra.Service
         public AboutusEditorService(IAboutusEditorRepository _aboutusEditorRepository)
         {
             aboutusEditorRepository = _aboutusEditorRepository;
-
         }
         public bool CREATEABOUTUSEDITOR(Aboutuseditor aboutuseditor)
         {
             return aboutusEditorRepository.CREATEABOUTUSEDITOR(aboutuseditor);
         }
-
         public string DELETEABOUTUSEDITOR(int id)
         {
             return aboutusEditorRepository.DELETEABOUTUSEDITOR(id);
         }
-
         public List<Aboutuseditor> GETAABOUTUSEDITOR()
         {
             return aboutusEditorRepository.GETAABOUTUSEDITOR();
         }
-
         public bool UPDATEABOUTUSEDITOR(Aboutuseditor aboutuseditor)
         {
             return aboutusEditorRepository.UPDATEABOUTUSEDITOR(aboutuseditor);

@@ -10,7 +10,6 @@ namespace Tahaluf.BusTracking.Infra.Service
     public class WebsitehomeService : IWebsitehomeService
     {
         private readonly IWebsitehomeRepository websitehomeRepository;
-
         public WebsitehomeService(IWebsitehomeRepository _websitehomeRepository)
         {
             websitehomeRepository = _websitehomeRepository;

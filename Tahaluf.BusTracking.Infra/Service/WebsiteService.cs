@@ -30,9 +30,5 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return websiteRepository.DeleteWebsite(Id);
         }
-
-       
-
-       
     }
 }

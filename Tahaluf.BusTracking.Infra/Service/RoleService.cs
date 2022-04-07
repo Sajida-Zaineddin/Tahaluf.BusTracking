@@ -10,7 +10,6 @@ namespace Tahaluf.BusTracking.Infra.Service
     public class RoleService : IRoleService
     {
         private readonly IRoleRepository roleRepository;
-
         public RoleService(IRoleRepository _roleRepository)
         {
             roleRepository = _roleRepository;

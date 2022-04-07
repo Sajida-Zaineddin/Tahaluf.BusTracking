@@ -31,17 +31,14 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return studentRepository.DeleteStudent(id);
         }
-
         public List<Roundstatus> GETROUNDSTATUS()
         {
             return studentRepository.GETROUNDSTATUS();
         }
-
-        public List<User> GETPARENTNAME()
+        public List<getParentName> GETPARENTNAME()
         {
             return studentRepository.GETPARENTNAME();
         }
-
         public List<Bu> GETBUSNUMBER()
         {
             return studentRepository.GETBUSNUMBER();
@@ -50,29 +47,26 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return studentRepository.SEARCHSTUDENT(studentdto);
         }
-
-
         public string UpdateAllStudentsBusStatus()
         {
-
             return studentRepository.UpdateAllStudentsBusStatus();
         }
-
         public bool UPDATESTUDENTBUSSTATUS(string x)
         {
-
             return studentRepository.UPDATESTUDENTBUSSTATUS(x);
         }
-
         public List<ParentStudentsDTO> GetParentStudents(Login login)
         {
-
             return studentRepository.GetParentStudents(login);
         }
-
         public List<Attendance> GetStudentAttendence(Student student)
         {
             return studentRepository.GetStudentAttendence(student);
+        }
+
+        public List<GetStudentListByTeacher> GetStudentListByTeacher(string TEACHERNAME)
+        {
+            return studentRepository.GetStudentListByTeacher(TEACHERNAME);
         }
     }
 }

@@ -15,49 +15,49 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             userRepository = _userRepository;
         }
-
         public List<UserDTO> GetAllUser()
         {
             return userRepository.GetAllUser();
         }
-
         public bool CreateUser(UserDTO user)
         {
             return userRepository.CreateUser(user);
         }
-
         public bool UpdateUser(UserDTO user)
         {
             return userRepository.UpdateUser(user);
         }
-
         public string DeleteUser(int id)
         {
             return userRepository.DeleteUser(id);
         }
-
         public List<Role> GetRole()
         {
             return userRepository.GetRole();
         }
-
         public List<User> GetAllDrivers()
         {
             return userRepository.GetAllDrivers();
         }
-
-        public List<User> GetAllTeachers() { 
-        
+        public List<User> GetAllTeachers()
+        { 
             return userRepository.GetAllTeachers();
         }
-
-        public User GteUserByUusernameFroEdit(Login login) {
-
+        public User GteUserByUusernameFroEdit(Login login) 
+        {
             return userRepository.GteUserByUusernameFroEdit(login);
         }
-        public bool UpdateUserNormal(User user) { 
+        public bool UpdateUserNormal(User user) 
+        { 
             return userRepository.UpdateUserNormal(user);
         }
-     
+        public List<User> GETTEACHERINFO(string Uname)
+        {
+            return userRepository.GETTEACHERINFO(Uname);
+        }
+        public List<teacherBusList> GETTEACHERID(string Uname)
+        {
+            return userRepository.GETTEACHERID(Uname);
+        }
     }
 }

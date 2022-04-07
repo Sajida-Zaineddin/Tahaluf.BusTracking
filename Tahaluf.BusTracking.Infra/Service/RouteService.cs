@@ -15,44 +15,33 @@ namespace Tahaluf.BusTracking.Infra.Service
         public RouteService(IRouteRepository _routeRepository)
         {
             routeRepository = _routeRepository;
-
         }
-
         public bool CREATEROUTE(Route route)
         {
             return routeRepository.CREATEROUTE(route);
         }
-
         public string DELETEROUTE(int id)
         {
-
             return routeRepository.DELETEROUTE(id);
         }
-
         public List<Route> GETALLROUTE()
         {
-
             return routeRepository.GETALLROUTE();
         }
-
         public bool UPDATEROUTE(Route route)
         {
-
             return routeRepository.UPDATEROUTE(route);
         }
-
         public Route SELECTFROMROUTEBYUSERNAME(string email)
         {
-
             return routeRepository.SELECTFROMROUTEBYUSERNAME(email);
         }
         public bool SETCURRENTBUSLOCATION(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
         {
-
             return routeRepository.SETCURRENTBUSLOCATION(setCurrentBusLocationDTO);
         }
-        public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO) {
-
+        public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
+        {
             return routeRepository.setCurrentBusLocationAfterEnd(setCurrentBusLocationDTO);
         }
     }
