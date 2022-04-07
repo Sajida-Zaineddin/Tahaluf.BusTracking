@@ -13,14 +13,9 @@ namespace Tahaluf.BusTracking.Infra.Repository
 {
     public class TestimonialRepository : ITestimonialRepository
     {
-
         private readonly IDbContext DbContext;
-
-
-
         public TestimonialRepository(IDbContext _DbContext)
         {
-
             DbContext = _DbContext;
         }
 
@@ -37,39 +32,29 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("photo", testimonial.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("opinion", testimonial.Feedback, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("testStat", "onhold", dbType: DbType.String, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("testcreate", p, commandType: CommandType.StoredProcedure);
-
             return true;
         }
 
         public bool UpdateTestimonial(TestimoinealUpdateDTO testimonial)
         {
             var p = new DynamicParameters();
-            
             p.Add("testId", testimonial.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("testStat", testimonial.Status, dbType: DbType.String, direction: ParameterDirection.Input);
-           
-
             var result = DbContext.Connection.ExecuteAsync("testcreateUpdate", p, commandType: CommandType.StoredProcedure);
-
             return true;
         }
         public string DeleteTestimonial(int id)
         {
-
             var p = new DynamicParameters();
             p.Add("testId", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("TESTIMONIAL_PACKAGE.DELETETESTIMONIAL", p, commandType: CommandType.StoredProcedure);
-
             return "deleted successfuly";
         }
-
         public List<Testimonialstatus> GetTestimonialStatus()
         {
             IEnumerable<Testimonialstatus> result = DbContext.Connection.Query<Testimonialstatus>("TESTIMONIALSTATUS_PACKAGE.GETALLTESTIMONIALSTATUS", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
     }
 }

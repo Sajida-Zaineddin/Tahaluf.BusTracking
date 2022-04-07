@@ -17,7 +17,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             dbContext = _dbContext;
         }
-
         public List<Websitehome> GetAllwebsitehome()
         {
             IEnumerable<Websitehome> result = dbContext.Connection.Query<Websitehome>("WEBSITEHOME_PACKAGE.GETALLWEBSITEHOME", commandType: CommandType.StoredProcedure);
@@ -30,7 +29,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             par.Add("@HTITLE", websitehome.Titel, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@HTEXT", websitehome.Text, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@HWEBSITEID", websitehome.Websiteid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = dbContext.Connection.ExecuteAsync("WEBSITEHOME_PACKAGE.CREATEWEBSITEHOME", par, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -42,7 +40,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             par.Add("@HTITLE", websitehome.Titel, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@HTEXT", websitehome.Text, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@HWEBSITEID", websitehome.Websiteid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = dbContext.Connection.ExecuteAsync("WEBSITEHOME_PACKAGE.UPDATEWEBSITEHOME", par, commandType: CommandType.StoredProcedure);
             return true;
         }

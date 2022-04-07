@@ -17,7 +17,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             dbContext = _dbContext;
         }
-
         public List<Websitefooter> GetAllwebsitefooter()
         {
             IEnumerable<Websitefooter> result = dbContext.Connection.Query<Websitefooter>("WEBSITEFOOTER_PACKAGE.GETALLWEBSITEFOOTER", commandType: CommandType.StoredProcedure);
@@ -31,7 +30,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             par.Add("@FPHONE", websitefooter.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@FEMAIL", websitefooter.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@FWEBSITEID", websitefooter.Websiteid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = dbContext.Connection.ExecuteAsync("WEBSITEFOOTER_PACKAGE.CREATEWEBSITEFOOTER", par, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -44,7 +42,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             par.Add("@FPHONE", websitefooter.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@FEMAIL", websitefooter.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             par.Add("@FWEBSITEID", websitefooter.Websiteid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = dbContext.Connection.ExecuteAsync("WEBSITEFOOTER_PACKAGE.UPDATEWEBSITEFOOTER", par, commandType: CommandType.StoredProcedure);
             return true;
         }

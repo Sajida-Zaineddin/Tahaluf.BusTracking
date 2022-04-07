@@ -35,10 +35,8 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("ABOUTUSEDITOR_PACKAGE.DELETEABOUTUSEDITOR", p, commandType: CommandType.StoredProcedure);
             return "Succesfully deleted";
         }
-
         public List<Aboutuseditor> GETAABOUTUSEDITOR()
         {
-
             IEnumerable<Aboutuseditor> result = DbContext.Connection.Query<Aboutuseditor>("ABOUTUSEDITOR_PACKAGE.GETAABOUTUSEDITOR", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -51,7 +49,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("TXT", aboutuseditor.Titel, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("INFO", aboutuseditor.Text, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ABID", aboutuseditor.Aboutid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("ABOUTUSEDITOR_PACKAGE.UPDATEABOUTUSEDITOR", p, commandType: CommandType.StoredProcedure);
             return true;
         }

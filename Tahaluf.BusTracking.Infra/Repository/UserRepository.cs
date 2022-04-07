@@ -18,13 +18,11 @@ namespace Tahaluf.BusTracking.Infra.Repository
         {
             DbContext = _DbContext;
         }
-
         public List<UserDTO> GetAllUser()
         {
             IEnumerable<UserDTO> result = DbContext.Connection.Query<UserDTO>("USERS_PACKAGE.GETUSERSDTO", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
         public bool CreateUser(UserDTO user)
         {
             var p = new DynamicParameters();
@@ -33,11 +31,9 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ROLE_NAME", user.Rolename, dbType: DbType.String, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("USERS_PACKAGE.CREATEUSERS", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
         public bool UpdateUser(UserDTO user)
         {
             var p = new DynamicParameters();
@@ -47,32 +43,26 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ROLE_NAME", user.Rolename, dbType: DbType.String, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("USERS_PACKAGE.UPDATEUSERS", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
         public string DeleteUser(int id)
         {
             var p = new DynamicParameters();
             p.Add("USERS_ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("USERS_PACKAGE.DELETEUSERS", p, commandType: CommandType.StoredProcedure);
-
             return "deleted successfuly";
         }
-
         public List<Role> GetRole()
         {
             IEnumerable<Role> result = DbContext.Connection.Query<Role>("ROLE_PACKAGE.GETALLROLE", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
-        public List<User> GetAllDrivers() {
-
+        public List<User> GetAllDrivers()
+        {
             IEnumerable<User> result = DbContext.Connection.Query<User>("GETALLDRIVERS", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
         public List<User> GetAllTeachers()
         {
             IEnumerable<User> result = DbContext.Connection.Query<User>("getallTeachers", commandType: CommandType.StoredProcedure);
@@ -86,7 +76,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             IEnumerable<User> result = DbContext.Connection.Query<User>("GetUserBYUserNnmeFroEdit", p,commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
-
         public bool UpdateUserNormal(User user) {
 
             var p = new DynamicParameters();
@@ -96,10 +85,23 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("PHONE_NO", user.Phone, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("IMG", user.Imagepath, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("ROLE_ID", user.Roleid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("UPDATEUSERSNormal", p, commandType: CommandType.StoredProcedure);
             return true;
+        }
 
+        public List<User> GETTEACHERINFO(string Uname)
+        {
+            var par = new DynamicParameters();
+            par.Add("@USERNAME1", Uname, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<User> result = DbContext.Connection.Query<User>("USERS_PACKAGE.GETTEACHERINFO", par, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public List<teacherBusList> GETTEACHERID(string Uname)
+        {
+            var par = new DynamicParameters();
+            par.Add("@USERNAME1", Uname, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<teacherBusList> result = DbContext.Connection.Query<teacherBusList>("USERS_PACKAGE.GETTEACHERID", par, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

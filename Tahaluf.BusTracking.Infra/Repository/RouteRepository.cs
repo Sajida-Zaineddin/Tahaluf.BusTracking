@@ -31,7 +31,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("ROUTE_PACKAGE.CREATEROUTE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
         public string DELETEROUTE(int id)
         {
             var p = new DynamicParameters();
@@ -39,13 +38,11 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("ROUTE_PACKAGE.DELETEROUTE", p, commandType: CommandType.StoredProcedure);
             return "Succesfully deleted";
         }
-
         public List<Route> GETALLROUTE()
         {
             IEnumerable<Route> result = DbContext.Connection.Query<Route>("ROUTE_PACKAGE.GETALLROUTE", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
         public bool UPDATEROUTE(Route route)
         {
             var p = new DynamicParameters();
@@ -60,8 +57,6 @@ namespace Tahaluf.BusTracking.Infra.Repository
             var result = DbContext.Connection.ExecuteAsync("ROUTE_PACKAGE.UPDATEROUTE", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
-      
         public Route SELECTFROMROUTEBYUSERNAME(string email)
         {
             var p = new DynamicParameters();
@@ -70,24 +65,19 @@ namespace Tahaluf.BusTracking.Infra.Repository
             return result.FirstOrDefault();
         }
 
-
         public bool SETCURRENTBUSLOCATION(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
         {
             var p = new DynamicParameters();           
             p.Add("LATX", setCurrentBusLocationDTO.Xcurrent, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("LONGY", setCurrentBusLocationDTO.Ycurrent, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("EMAIL", setCurrentBusLocationDTO.Username, dbType: DbType.String, direction: ParameterDirection.Input);
-           
             var result = DbContext.Connection.ExecuteAsync("SETCURRENTBUSLOCATION", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
         public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
         {
             var p = new DynamicParameters();
-            
             p.Add("email", setCurrentBusLocationDTO.Username, dbType: DbType.String, direction: ParameterDirection.Input);
-
             var result = DbContext.Connection.ExecuteAsync("setCurrentBusLocationAfterEnd", p, commandType: CommandType.StoredProcedure);
             return true;
         }

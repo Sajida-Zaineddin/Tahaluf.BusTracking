@@ -12,17 +12,11 @@ namespace Tahaluf.BusTracking.Infra.Repository
 {
     public class ContactusRepository : IContactusRepository
     {
-
         private readonly IDbContext DbContext;
-
-
-
         public ContactusRepository(IDbContext _DbContext)
         {
-
             DbContext = _DbContext;
         }
-
         public List<Contactu> GetContactus()
         {
             IEnumerable<Contactu> result = DbContext.Connection.Query<Contactu>("CONTACTUS_PACKAGE.GETALLCONTACTUS", commandType: CommandType.StoredProcedure);
@@ -36,13 +30,9 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("MAIL", contactu.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("TXT", contactu.Subject, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CONTEXTMESSAGE", contactu.Massage, dbType: DbType.String, direction: ParameterDirection.Input);
-
-
             var result = DbContext.Connection.ExecuteAsync("CONTACTUS_PACKAGE.CreateContactus", p, commandType: CommandType.StoredProcedure);
-
             return true;
         }
-
         public bool UpdateContactus(Contactu contactu)
         {
             var p = new DynamicParameters();
@@ -52,24 +42,15 @@ namespace Tahaluf.BusTracking.Infra.Repository
             p.Add("MAIL", contactu.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("TXT", contactu.Subject, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("CONTEXTMESSAGE", contactu.Massage, dbType: DbType.String, direction: ParameterDirection.Input);
-
-
             var result = DbContext.Connection.ExecuteAsync("CONTACTUS_PACKAGE.UpdateContactus", p, commandType: CommandType.StoredProcedure);
-
             return true;
         }
-
         public string DeleteContactus(int id)
         {
             var p = new DynamicParameters();
             p.Add("CONID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = DbContext.Connection.ExecuteAsync("CONTACTUS_PACKAGE.DeleteContactus", p, commandType: CommandType.StoredProcedure);
-
             return "deleted successfuly";
         }
-
-      
-
-   
     }
 }

@@ -64,13 +64,6 @@ namespace Tahaluf.BusTracking.API.Controllers
             return _busService.GetBusTeaachers();
         }
 
-        [HttpPost]
-        [Route("GetStudentList")]
-        public List<StudentDto> GETSTUDENTLIST([FromBody] StudentDto student)
-        {
-            return _busService.GETSTUDENTLIST(student);
-        }
-
         [HttpGet]
         [Route("GetBusInfoByUsername/{name}")]
         public Bu GetBusInfoByUsername(string name)
