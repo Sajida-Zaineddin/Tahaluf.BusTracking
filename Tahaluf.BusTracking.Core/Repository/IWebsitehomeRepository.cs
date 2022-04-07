@@ -11,6 +11,5 @@ namespace Tahaluf.BusTracking.Core.Repository
         bool Createwebsitehome(Websitehome websitehome);
         bool Updatewebsitehome(Websitehome websitehome);
         bool Deletewebsitehome(int Id);
-
     }
 }

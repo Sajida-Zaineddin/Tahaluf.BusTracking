@@ -15,9 +15,9 @@ namespace Tahaluf.BusTracking.Core.Repository
         List<Role> GetRole();
         List<User> GetAllDrivers();
         List<User> GetAllTeachers();
-
         User GteUserByUusernameFroEdit(Login login);
-
         bool UpdateUserNormal(User user);
+        List<User> GETTEACHERINFO(string Uname);
+        List<teacherBusList> GETTEACHERID(string Uname);
     }
 }

@@ -11,6 +11,5 @@ namespace Tahaluf.BusTracking.Core.Repository
         bool Createwebsitefooter(Websitefooter websitefooter);
         bool Updatewebsitefooter(Websitefooter websitefooter);
         bool Deletewebsitefooter(int Id);
-
     }
 }
