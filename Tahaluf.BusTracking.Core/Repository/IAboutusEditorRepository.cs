@@ -8,11 +8,8 @@ namespace Tahaluf.BusTracking.Core.Repository
     public interface IAboutusEditorRepository
     {
         List<Aboutuseditor> GETAABOUTUSEDITOR();
-
         bool CREATEABOUTUSEDITOR(Aboutuseditor aboutuseditor);
-
         bool UPDATEABOUTUSEDITOR(Aboutuseditor aboutuseditor);
-
         string DELETEABOUTUSEDITOR(int id);
     }
 }

@@ -11,6 +11,5 @@ namespace Tahaluf.BusTracking.Core.Repository
         bool CreateRole(Role role);
         bool UpdateRole(Role role);
         bool DeleteRole(int Id);
-
     }
 }

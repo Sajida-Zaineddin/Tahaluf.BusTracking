@@ -13,16 +13,13 @@ namespace Tahaluf.BusTracking.Core.Repository
         bool UpdateStudent(StudentDto studentdto);
         bool DeleteStudent(int id);
         List<Roundstatus> GETROUNDSTATUS();
-        List<User> GETPARENTNAME();
+        List<getParentName> GETPARENTNAME();
         List<Bu> GETBUSNUMBER();
         List<Student> SEARCHSTUDENT(StudentDto studentdto);
-
         string UpdateAllStudentsBusStatus();
         bool UPDATESTUDENTBUSSTATUS(string x);
-
         List<ParentStudentsDTO> GetParentStudents(Login login);
-
         List<Attendance> GetStudentAttendence(Student student);
-
+        List<GetStudentListByTeacher> GetStudentListByTeacher(string TEACHERNAME);
     }
 }

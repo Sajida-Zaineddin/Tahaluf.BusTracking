@@ -8,11 +8,8 @@ namespace Tahaluf.BusTracking.Core.Repository
     public interface IContactusRepository
     {
         List <Contactu> GetContactus();
-
         bool CreateContactus(Contactu contactu);
-
         bool UpdateContactus(Contactu contactu);
-
         string DeleteContactus(int id);
     }
 }
