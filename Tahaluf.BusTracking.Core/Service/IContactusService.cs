@@ -7,13 +7,9 @@ namespace Tahaluf.BusTracking.Core.Service
 {
     public interface IContactusService
     {
-
         List<Contactu> GetContactus();
-        
         bool CreateContactus(Contactu contactu);
-        
         bool UpdateContactus(Contactu contactu);
-                
         string DeleteContactus(int id); 
     }
 }

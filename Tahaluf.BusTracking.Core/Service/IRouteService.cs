@@ -9,18 +9,11 @@ namespace Tahaluf.BusTracking.Core.Service
     public interface IRouteService
     {
         List<Route> GETALLROUTE();
-
         bool CREATEROUTE(Route route);
-
         bool UPDATEROUTE(Route route);
-
         string DELETEROUTE(int id);
-
-      
         Route SELECTFROMROUTEBYUSERNAME(string email);
-
         bool SETCURRENTBUSLOCATION(SetCurrentBusLocationDTO setCurrentBusLocationDTO);
-
         bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO);
     }
 }

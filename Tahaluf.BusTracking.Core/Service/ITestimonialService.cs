@@ -9,13 +9,9 @@ namespace Tahaluf.BusTracking.Core.Service
     public interface ITestimonialService
     {
         List<TestimoinealDTO> GetAllTestimonials();
-
         bool CreateTestimonial(TestimoinealDTO testimonial);
-
         bool UpdateTestimonial(TestimoinealUpdateDTO testimonial);
-
         string DeleteTestimonial(int id);
-
         List<Testimonialstatus> GetTestimonialStatus();
     }
 }

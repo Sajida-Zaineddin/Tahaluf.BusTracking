@@ -8,11 +8,8 @@ namespace Tahaluf.BusTracking.Core.Service
     public interface IAboutusService
     {
         List<Aboutu> GetAboutus();
-
         bool CreateAboutus(Aboutu aboutu);
-
         bool UpdateAboutus(Aboutu aboutu);
-
         string DeleteAboutus(int id);
         Aboutu GetById(int id);
     }

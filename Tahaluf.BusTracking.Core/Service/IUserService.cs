@@ -16,7 +16,8 @@ namespace Tahaluf.BusTracking.Core.Service
         List<User> GetAllDrivers();
         List<User> GetAllTeachers();
         User GteUserByUusernameFroEdit(Login login);
-
         bool UpdateUserNormal(User user);
+        List<User> GETTEACHERINFO(string Uname);
+        List<teacherBusList> GETTEACHERID(string Uname);
     }
 }

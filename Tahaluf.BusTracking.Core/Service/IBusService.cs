@@ -15,14 +15,10 @@ namespace Tahaluf.BusTracking.Core.Service
         bool DeleteBus(int id);
         List<GetBusDriversDTO> GetBusDrivers();
         List<GetBusTeachersDTO> GetBusTeaachers();
-        //Task<List<Bu>> GETSTUDENTLIST();
         List<StudentDto> GETSTUDENTLIST(StudentDto student);
-
         Bu GetBusInfoByUsername(string name);
-
-
         List<Student> GetBusStudents(int busid);
-
         List<Route> GetRouteByBus(int busid);
+        List<GetStudentListByTeacher> GETSTUDENTLIST(int busnumber);
     }
 }
