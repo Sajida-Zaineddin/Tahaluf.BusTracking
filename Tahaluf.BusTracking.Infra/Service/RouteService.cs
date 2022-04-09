@@ -44,5 +44,14 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return routeRepository.setCurrentBusLocationAfterEnd(setCurrentBusLocationDTO);
         }
+
+        public List<RouteWithNameDTO> GetRouteWithNameDTO() {
+
+            return routeRepository.GetRouteWithNameDTO();
+        }
+        public List<RouteDTO> getBusRouteDTO() {
+
+            return routeRepository.getBusRouteDTO();
+        }
     }
 }

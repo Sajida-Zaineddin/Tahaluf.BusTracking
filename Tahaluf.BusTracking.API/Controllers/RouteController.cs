@@ -57,10 +57,10 @@ namespace Tahaluf.BusTracking.API.Controllers
         }
 
         [HttpPost]
-        [Route("SETCURRENTBUSLOCATION")]               
+        [Route("SETCURRENTBUSLOCATION")]
         public bool SETCURRENTBUSLOCATION([FromBody] SetCurrentBusLocationDTO setCurrentBusLocationDTO)
-        { 
-             return routeService.SETCURRENTBUSLOCATION(setCurrentBusLocationDTO);
+        {
+            return routeService.SETCURRENTBUSLOCATION(setCurrentBusLocationDTO);
         }
 
         [HttpPost]
@@ -68,6 +68,21 @@ namespace Tahaluf.BusTracking.API.Controllers
         public bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO)
         {
             return routeService.setCurrentBusLocationAfterEnd(setCurrentBusLocationDTO);
+        }
+
+        [HttpGet]
+        [Route("GetRouteWithNameDTO")]
+        public List<RouteWithNameDTO> GetRouteWithNameDTO() {
+
+            return routeService.GetRouteWithNameDTO();
+        }
+
+
+        [HttpGet]
+        [Route("getBusRouteDTO")]
+        public List<RouteDTO> getBusRouteDTO() { 
+        
+            return routeService.getBusRouteDTO();   
         }
     }
 }

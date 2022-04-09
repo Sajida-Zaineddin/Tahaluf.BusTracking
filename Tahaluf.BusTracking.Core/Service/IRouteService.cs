@@ -15,5 +15,7 @@ namespace Tahaluf.BusTracking.Core.Service
         Route SELECTFROMROUTEBYUSERNAME(string email);
         bool SETCURRENTBUSLOCATION(SetCurrentBusLocationDTO setCurrentBusLocationDTO);
         bool setCurrentBusLocationAfterEnd(SetCurrentBusLocationDTO setCurrentBusLocationDTO);
+        public List<RouteWithNameDTO> GetRouteWithNameDTO();
+        List<RouteDTO> getBusRouteDTO();
     }
 }
