@@ -6,6 +6,7 @@ namespace Tahaluf.BusTracking.Core.DTO
 {
     public class getParentName
     {
+        public decimal Id { get; set; }
         public string FullName { get; set; }
     }
 }

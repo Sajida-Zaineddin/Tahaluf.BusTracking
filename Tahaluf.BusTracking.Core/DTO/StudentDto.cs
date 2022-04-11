@@ -14,5 +14,13 @@ namespace Tahaluf.BusTracking.Core.DTO
         public string roundStatus { get; set; }
         public string fullName { get; set; }
         public decimal busnumber { get; set; }
+
+        public decimal userid { get; set; }
+        public decimal ROUNDSTATUSID { get; set; }
+        public decimal BUSID { get; set; }
+
+
+
+
     }
 }

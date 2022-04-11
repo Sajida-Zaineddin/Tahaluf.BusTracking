@@ -19,13 +19,13 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return studentRepository.GetAllStudent();
         }
-        public bool CreateStudent(StudentDto studentdto)
+        public bool CreateStudent(Student student)
         {
-            return studentRepository.CreateStudent(studentdto);
+            return studentRepository.CreateStudent(student);
         }
-        public bool UpdateStudent(StudentDto studentdto)
+        public bool UpdateStudent(Student student)
         {
-            return studentRepository.UpdateStudent(studentdto);
+            return studentRepository.UpdateStudent(student);
         }
         public bool DeleteStudent(int id)
         {

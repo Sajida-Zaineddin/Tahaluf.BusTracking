@@ -20,35 +20,35 @@ namespace Tahaluf.BusTracking.Infra.Repository
         }
         public List<StudentDto> GetAllStudent()
         {
-            IEnumerable<StudentDto> result = DbContext.Connection.Query<StudentDto>("STUDENT_PACKAGE.GETSTUDENTDTO", commandType: CommandType.StoredProcedure);
+            IEnumerable<StudentDto> result = DbContext.Connection.Query<StudentDto>("GETSTUDENTDTOXXXX", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public bool CreateStudent(StudentDto studentdto)
+        public bool CreateStudent(Student student)
         {
             var p = new DynamicParameters();
 
-            p.Add("NAMEe", studentdto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("X_HOME", studentdto.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Y_HOME", studentdto.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("STD_GRADE", studentdto.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("ROUNDSTATUS", studentdto.roundStatus, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("PARENTNAME", studentdto.fullName, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("BUS_NUMBER", studentdto.busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = DbContext.Connection.ExecuteAsync("STUDENT_PACKAGE.CREATESTUDENT", p, commandType: CommandType.StoredProcedure);
+            p.Add("NAMEe", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("X_HOME", student.xhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Y_HOME", student.yhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("STD_GRADE", student.grade, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ROUND_ID", student.roundid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("PARENT_ID", student.parentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("BUS_ID", student.busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = DbContext.Connection.ExecuteAsync("CREATESTUDENTXXXX", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool UpdateStudent(StudentDto studentdto)
+        public bool UpdateStudent(Student student)
         {
             var p = new DynamicParameters();
-            p.Add("STUDENT_ID", studentdto.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("NAMEe", studentdto.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("X_HOME", studentdto.Xhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Y_HOME", studentdto.Yhome, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("STD_GRADE", studentdto.Grade, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("ROUNDSTATUS", studentdto.roundStatus, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("PARENTNAME", studentdto.fullName, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("BUS_NUMBER", studentdto.busnumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = DbContext.Connection.ExecuteAsync("STUDENT_PACKAGE.UPDATESTUDENT", p, commandType: CommandType.StoredProcedure);
+            p.Add("STUDENT_ID", student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("NAMEe", student.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("X_HOME", student.xhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Y_HOME", student.yhome, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("STD_GRADE", student.grade, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("ROUND_ID", student.roundid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("PARENT_ID", student.parentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("BUS_ID", student.busid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = DbContext.Connection.ExecuteAsync("UPDATESTUDENTxxxx", p, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool DeleteStudent(int id)
@@ -60,17 +60,17 @@ namespace Tahaluf.BusTracking.Infra.Repository
         }
         public List<Roundstatus> GETROUNDSTATUS()
         {
-            IEnumerable<Roundstatus> result = DbContext.Connection.Query<Roundstatus>("STUDENT_PACKAGE.GETROUNDSTATUS", commandType: CommandType.StoredProcedure);
+            IEnumerable<Roundstatus> result = DbContext.Connection.Query<Roundstatus>("GETROUNDSTATUSxxxx", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public List<getParentName> GETPARENTNAME()
         {
-            IEnumerable<getParentName> result = DbContext.Connection.Query<getParentName>("STUDENT_PACKAGE.GETPARENTNAME", commandType: CommandType.StoredProcedure);
+            IEnumerable<getParentName> result = DbContext.Connection.Query<getParentName>("GETPARENTNAMExxxxx", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public List<Bu> GETBUSNUMBER()
         {
-            IEnumerable<Bu> result = DbContext.Connection.Query<Bu>("STUDENT_PACKAGE.GETBUSNUMBER", commandType: CommandType.StoredProcedure);
+            IEnumerable<Bu> result = DbContext.Connection.Query<Bu>("GETBUSNUMBERxxxxx", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public List<Student> SEARCHSTUDENT(StudentDto studentdto)

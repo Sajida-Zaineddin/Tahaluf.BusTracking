@@ -9,8 +9,8 @@ namespace Tahaluf.BusTracking.Core.Service
     public interface IStudentService
     {
         List<StudentDto> GetAllStudent();
-        bool CreateStudent(StudentDto studentdto);
-        bool UpdateStudent(StudentDto studentdto);
+        bool CreateStudent(Student student);
+        bool UpdateStudent(Student student);
         bool DeleteStudent(int id);
         List<Roundstatus> GETROUNDSTATUS();
         List<getParentName> GETPARENTNAME();
