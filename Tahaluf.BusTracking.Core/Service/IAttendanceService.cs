@@ -17,5 +17,7 @@ namespace Tahaluf.BusTracking.Core.Service
         List<AttendanceStatus> GETATTENDANCESTATUS();
         List<GETTEACHERINFONEW> GETTEACHERINFONEW(Login login);
         studentEmail GETSTUDENTEMAIL(int StudentId);
+
+        List<AttendansByStudentId> StudentAttendeans(Student student);
     }
 }

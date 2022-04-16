@@ -86,5 +86,15 @@ namespace Tahaluf.BusTracking.Infra.Repository
             IEnumerable<studentEmail> result = DbContext.Connection.Query<studentEmail>("ATTENDANCE_PACKAGE.GETSTUDENTEMAIL", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
+
+        public List<AttendansByStudentId> StudentAttendeans(Student student )
+
+        {
+            var p = new DynamicParameters();
+            p.Add("ids",  student.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<AttendansByStudentId> result = DbContext.Connection.Query<AttendansByStudentId>("GETATTENDANCEofstudentxxx",p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
     }
 }

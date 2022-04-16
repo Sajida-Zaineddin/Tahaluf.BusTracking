@@ -135,5 +135,12 @@ namespace Tahaluf.BusTracking.API.Controllers
         {
             return attendanceService.GETSTUDENTEMAIL(StudentId);
         }
+
+        [HttpPost]
+        [Route("StudentAttendeansWithId")]
+        public List<AttendansByStudentId> StudentAttendeans(Student student) {
+
+            return attendanceService.StudentAttendeans(student);
+        }
     }
 }

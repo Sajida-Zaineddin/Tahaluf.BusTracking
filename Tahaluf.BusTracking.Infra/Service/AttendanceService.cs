@@ -51,5 +51,10 @@ namespace Tahaluf.BusTracking.Infra.Service
         {
             return attendanceRepository.GETTEACHERINFONEW(login);
         }
+
+        public List<AttendansByStudentId> StudentAttendeans(Student student) { 
+        
+            return attendanceRepository.StudentAttendeans(student);
+        }
     }
 }
